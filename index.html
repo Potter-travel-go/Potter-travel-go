@@ -537,6 +537,46 @@ footer small{font-size:11px;opacity:.7}
 body.editing .edit-btn{background:var(--tone-m,#BCCAD2)}
 .hero svg [stroke="#3E3A39"],main svg [stroke="#3E3A39"],nav svg [stroke="#3E3A39"],.brand svg [stroke="#3E3A39"]{stroke:var(--edge)}
 #defs [stroke="#3E3A39"],svg symbol [stroke="#3E3A39"]{stroke:var(--edge)}
+
+/* ── v23 首頁留白調整 ── */
+main{padding-left:18px;padding-right:18px}
+#page-home{gap:22px}
+#page-home>.card,#page-home>.fx,#page-home>.me-card,#page-home>.backup-banner{margin:0}
+.card,.fx{padding:16px 16px 18px}
+.card-h{margin:0 0 12px;font-size:17.5px}
+#page-home .note{margin:10px 0 0;line-height:1.6}
+.tk-row{gap:10px;margin:10px 0;line-height:1.55}
+.tk-badges{gap:8px;margin:6px 0 10px}
+.tk-sub{margin:14px 0 6px}
+.tk-books{gap:8px;align-items:stretch}
+.tk-book{border-radius:14px;padding:7px 12px;line-height:1.45;width:100%;box-sizing:border-box}
+.wx-card .wx-list{gap:8px}
+.wx-row{padding:8px 12px;gap:12px}
+.wx-city{min-width:70px}
+.fx-head{margin-bottom:12px}
+.fx-auto{margin:0 0 12px;gap:2px 10px}
+.fx-row{gap:8px}
+.fx-in input{font-size:17px}
+.fx-quick{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:12px 0 10px}
+.fx-quick button{padding:4px 0;font-size:12.5px;white-space:nowrap}
+.fx-tax{line-height:1.45}
+.fx-out:empty{display:none}
+.fx-note{margin-top:10px;line-height:1.6}
+.near-grid{gap:8px}
+.near-btn{padding:10px 2px 8px;gap:4px;white-space:nowrap}
+.me-card{padding:14px 16px;gap:14px}
+.me-txt{line-height:1.6}
+#overviewBlk .page-head{margin:4px 0 10px}
+#overviewBlk .fold{margin-bottom:10px}
+/*me*/.me-txt{flex:1;font-size:14px}
+.me-go{flex:none;white-space:nowrap}
+.tk-st{font-weight:400;white-space:nowrap;flex:none}
+.me-card .nav-go svg{width:17px;height:17px;flex:none;margin:0}
+.nav-go{display:inline-flex!important;align-items:center;gap:5px;border-radius:14px!important;padding:4px 12px!important;margin:8px 0 0!important;line-height:1.4}
+.more-body{display:flex;flex-direction:column;gap:16px;background:var(--paper-2,#FAF6EE)}
+.more-body>.card,.more-body>.fx,.more-body>.me-card{margin:0}
+.more-body #overviewBlk .page-head{margin-top:0}
+@media (max-width:360px){main{padding-left:12px;padding-right:12px}.fx-quick{grid-template-columns:repeat(3,1fr)}}
 </style>
 <!-- ═══ Firebase 同步（GitHub Pages 版）═══ -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -579,6 +619,7 @@ const TRIP_USER = "potter";   // 資料存在 Firestore：data/users/potter/trip
     <symbol id="i-torii" viewBox="0 0 48 48"><path d="M5 12c8 3 30 3 38 0l-2 6H7z" fill="#F2A497" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/><path d="M10 22h28" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/><path d="M14 18v26M34 18v26" stroke="#3E3A39" stroke-width="4" stroke-linecap="round"/><path d="M24 18v4" stroke="#3E3A39" stroke-width="3"/><path d="M10 44h28" stroke="#B9DAA5" stroke-width="4" stroke-linecap="round"/></symbol>
     <symbol id="i-castle" viewBox="0 0 48 48"><path d="M10 40h28l-3-10H13z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/><path d="M8 30h32l-5-5H13z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/><rect x="15" y="17" width="18" height="8" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><path d="M12 17h24l-5-6H17z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/><path d="M19 9l2 2M29 9l-2 2" stroke="#F6D27A" stroke-width="3" stroke-linecap="round"/><rect x="21" y="33" width="6" height="7" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2.5"/></symbol>
     <symbol id="i-bed" viewBox="0 0 48 48"><path d="M6 36V16M6 30h36v6M42 30v-6c0-3-2-5-5-5H22v11" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><rect x="9" y="21" width="10" height="7" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2.5"/><path d="M22 19h15c3 0 5 2 5 5v6H22z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></symbol>
+<symbol id="i-more" viewBox="0 0 48 48"><rect x="7" y="9" width="34" height="30" rx="8" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><circle cx="16" cy="24" r="3" fill="#3E3A39"/><circle cx="24" cy="24" r="3" fill="#3E3A39"/><circle cx="32" cy="24" r="3" fill="#3E3A39"/></symbol>
     <symbol id="i-check" viewBox="0 0 48 48"><rect x="8" y="6" width="32" height="38" rx="6" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><rect x="17" y="3" width="14" height="7" rx="3" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/><path d="M14 20l3 3 6-6M14 32l3 3 6-6" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M27 21h8M27 33h8" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/></symbol>
     <symbol id="i-bag" viewBox="0 0 48 48"><rect x="8" y="14" width="32" height="28" rx="7" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/><path d="M18 14V9c0-2 1-3 3-3h6c2 0 3 1 3 3v5" fill="none" stroke="#3E3A39" stroke-width="3"/><path d="M8 26h32" stroke="#3E3A39" stroke-width="3"/><rect x="20" y="22" width="8" height="8" rx="2" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.5"/></symbol>
     <symbol id="i-pass" viewBox="0 0 48 48"><rect x="10" y="6" width="28" height="36" rx="5" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3"/><circle cx="24" cy="20" r="6" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2.5"/><path d="M17 33h14" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/></symbol>
@@ -750,12 +791,13 @@ const TRIP_USER = "potter";   // 資料存在 Firestore：data/users/potter/trip
 
   <div class="me-card" id="meCardHome"><svg aria-hidden="true" overflow="visible" viewBox="0 0 60 64"><g class="avSlot"><use href="#i-me"/></g><use href="#o-none" id="ofHome"/></svg><div class="me-txt" id="meHome"></div><a class="me-go" href="#map">看地圖</a></div>
 
+  <details class="fold more-fold" id="moreFold"><summary><span class="ic" style="background:var(--tone-l,#E4ECF0)"><svg><use href="#i-more"/></svg></span><span class="ttl">更多<small id="moreSub"></small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body more-body" id="moreBody"></div></details>
   <div class="backup-banner" id="backupBanner" hidden><b>這是備份版。</b>平常請用 GitHub 上的主版本（加在手機主畫面的那個）；這一版只在主版本打不開時使用，資料會另外存。</div>
   <section class="card wx-card" id="wxCard" hidden></section>
   <section class="card" id="prepCard" hidden></section>
   <section class="card" id="taskCard"></section>
   <section class="card" id="tonightCard" hidden></section>
-  <section class="card" id="nearCard"><h3 class="card-h"><span class="ci"><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><use href="#ni-pin"/></svg></span>找我附近的</h3><div class="near-grid" id="nearGrid"></div><p class="note">點一下會打開 Google 地圖，搜尋你目前位置附近。</p></section>
+  <section class="card" id="nearCard"><h3 class="card-h"><span class="ci"><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><use href="#ni-pin"/></svg></span>找我附近的</h3><div class="near-grid" id="nearGrid"></div></section>
 
   <section class="card" id="reviewCard" hidden></section>
   <section class="fx" id="fxCard" aria-labelledby="fxTitle">
@@ -768,7 +810,7 @@ const TRIP_USER = "potter";   // 資料存在 Firestore：data/users/potter/trip
     <div class="fx-quick" id="fxQuick"></div>
     <label class="fx-tax"><input type="checkbox" id="fxTax">標價是「稅抜（未稅）」，幫我加 10% 消費稅</label>
     <div class="fx-out" id="fxOut"></div>
-    <div class="fx-note">匯率和記帳頁共用。也可以<a href="https://www.google.com/search?q=JPY+TWD" target="_blank" rel="noopener">查今天匯率 ↗</a>自己改，改了就會停止自動更新。</div>
+    <div class="fx-note">手動改匯率後會停止自動更新。</div>
   </section>
   <div id="overviewBlk">
   <div class="page-head"><h2 style="font-size:20px">旅程總覽</h2><button class="toggle-all" type="button" data-toggle="page-home">全部展開</button></div>
@@ -1017,7 +1059,7 @@ var DEFAULT={
  ],
  hotels:[
   {id:"h1",name:"HOTEL TORIFITO KANAZAWA",jp:"ホテル・トリフィート金沢",dates:"1/28 → 1/29",nights:"1 晚・單人房",status:"已訂",amount:"金額待填",url:"https://torifito.jp/kanazawa/tw/"},
-  {id:"h2",name:"名鐵 Inn 名古屋駅新幹線口",jp:"名鉄イン 名古屋駅新幹線口",dates:"1/29 → 2/1",nights:"3 晚",status:"已訂（已改成 1/29 起三晚）",amount:"金額待填",url:"https://www.m-inn.com/shinkansenguchi/"}
+  {id:"h2",name:"名鐵 Inn 名古屋駅新幹線口",jp:"名鉄イン 名古屋駅新幹線口",dates:"1/29 → 2/1",nights:"3 晚",status:"已訂",amount:"金額待填",url:"https://www.m-inn.com/shinkansenguchi/"}
  ],
  days:[
   {date:"1/28",wk:"四",icon:"i-plane",art:"plane",title:"抵達・金澤市區",sub:"小松機場 → 金澤，羽球拍、傍晚茶屋街與鼓門夜景",items:[
@@ -1137,22 +1179,22 @@ var DEFAULT={
  ],
  lists:{
   todo:[
-   ["Torifito 金澤：取消一筆、另一筆改 1/28 一晚單人","先確認兩筆的免費取消期限（Booking.com）","12 月"],
-   ["名鐵 Inn：改為 1/29–2/1 三晚","先訂好新的再取消舊的；確認 1/29 有房","12 月"],
-   ["KKday 1/30 高山＋白川鄉一日遊","選「直達展望台」方案；看清取消規定","飯店確定後"],
-   ["JR つるぎ35號＋しらさぎ14號 指定席","乘車日 1 個月前 10:00（e5489），兩段一起訂","約 12/29"],
-   ["なばなの里 入村券","便利商店預購，現場可能排 30 分以上","出發前"],
-   ["Visit Japan Web 登錄","入境＋機場退稅都可用","出發前"],
-   ["旅平險／旅遊不便險","含班機延誤、雪天行程取消","出發前"],
-   ["冬季裝備：防水雪靴、冰爪、暖暖包","白川鄉、なばなの里夜間很冷","出發前"],
-   ["IC 卡（Suica／ICOCA）＋日圓現金","金澤、名古屋交通都能用","出發前"],
-   ["查白川鄉展望台是否開放","shiroten.jp，冬季可能除雪關閉","1/29 晚"],
-   ["確認 KKday 是否出團","暴風雪前一天 18:00 判定","1/29 18:00"],
-   ["退稅：免稅品集中放、勿拆封","到機場先去稅關 KIOSK，再托運","2/1"]
+   ["訂 Torifito 金澤（1/28）","","12 月"],
+   ["訂名鐵 Inn 名古屋（1/29–2/1）","","12 月"],
+   ["KKday 1/30 高山＋白川鄉一日遊","直達展望台方案","12 月"],
+   ["JR つるぎ35號＋しらさぎ14號 指定席","1 個月前 10:00 開賣（e5489）","約 12/29"],
+   ["なばなの里 入村券","超商可預購","出發前"],
+   ["Visit Japan Web 登錄","入境、退稅用","出發前"],
+   ["旅平險／旅遊不便險","含延誤、行程取消","出發前"],
+   ["冬季裝備：防水雪靴、冰爪、暖暖包","","出發前"],
+   ["IC 卡（Suica／ICOCA）＋日圓現金","","出發前"],
+   ["查白川鄉展望台是否開放","shiroten.jp","1/29 晚"],
+   ["確認 KKday 是否出團","前一天 18:00 判定","1/29 18:00"],
+   ["退稅：免稅品集中放、勿拆封","先退稅再托運","2/1"]
   ].map(function(r,i){return {id:"todo-"+i,t:r[0],s:r[1],due:r[2]};}),
   before:[
-   ["護照","效期 6 個月以上"],["電子機票 IT294／IT269","截圖存手機"],["Visit Japan Web QR Code","截圖，入境與退稅用"],
-   ["兩間飯店訂房確認信","改訂後的新版本"],["KKday 憑證（1/30）","集合點與時間再看一次"],["JR 指定席車票／QR Code（1/29）","つるぎ35號＋しらさぎ14號"],
+   ["護照","效期 6 個月以上"],["電子機票 IT294／IT269","截圖存手機"],["Visit Japan Web QR Code","截圖存手機"],
+   ["兩間飯店訂房確認信",""],["KKday 憑證（1/30）",""],["JR 指定席車票／QR Code（1/29）","つるぎ35號＋しらさぎ14號"],
    ["なばなの里入村券（1/31）",""],["旅平險保單與理賠電話",""],["信用卡 2 張＋日圓現金","開好海外刷卡"],["IC 卡已加值",""],
    ["eSIM／Wi-Fi 分享器","出發前先安裝"],["Google 地圖離線地圖、乘換案內 App","金澤、名古屋、高山"],["查北陸與名古屋天氣、JR 運行資訊",""]
   ].map(function(r,i){return {id:"before-"+i,t:r[0],s:r[1]};}),
@@ -1596,7 +1638,7 @@ function updateMe(autoPick){
 }
 function updateHome(){
   var box=$("meHome"),d=todayIdx(),now=Date.now();
-  if(d<0){box.innerHTML=now<DAY0?'<b>還沒出發</b>出發後，這裡會跟著手機時間顯示你在哪、下一站去哪。現在可以到地圖頁用「預覽」看看。':'<b>旅程結束了</b>平安回家！';return;}
+  if(d<0){box.innerHTML=now<DAY0?'<b>還沒出發</b>出發後會顯示你在哪、下一站去哪。':'<b>旅程結束了</b>平安回家！';return;}
   var si=pickSub(d,now),sub=C().maps[d][si];setOutfit("ofHome",AV?"none":outfitKey(sub,locate(d,sub,now)));
   box.innerHTML='<span class="pill" style="margin-bottom:3px">'+C().days[d].date+'・'+esc(sub.label)+'</span>'+statusHtml(d,si,now);
 }
@@ -2181,11 +2223,11 @@ function fxCalc(from){
 
 /* ═════════ v19：首頁卡片、航班與憑證、導航、緊急 ═════════ */
 var DEFAULT_TASKS=[
- [["book","機票｜去程 虎航 IT294",1],["book","住宿｜HOTEL TORIFITO KANAZAWA",0],["warn","小松機場出關後直接到巴士站搭往金澤站的機場巴士"],["warn","飯店 15:00 才能入住：14:00 先寄放行李再出門"],["check","ハセガワスポーツ：週一～六 9:30–19:00，出發前確認有沒有臨時公休"]],
- [["book","JR｜つるぎ35號＋しらさぎ14號 指定席",0],["book","住宿｜名鐵 Inn 名古屋駅新幹線口（3 晚）",0],["warn","Torifito 11:00 退房；行李寄放飯店，16:15 回去拿"],["warn","16:40 前到新幹線月台，敦賀轉乘 32 分鐘"],["check","近江町市場以海鮮為主，先挑好不含海鮮的店"],["check","18:00 後看信箱：KKday 暴風雪是否出團"]],
- [["book","KKday｜白川鄉＋高山一日遊（直達展望台）",0],["warn","08:15 名古屋站集合，遲到不等"],["check","前一晚查 shiroten.jp：白川鄉展望台有沒有開"]],
- [["book","なばなの里 入村券",0],["warn","週日人多：長島巴士、回程巴士提早排隊"],["check","サトウスポーツ週一公休（1/31 週日有開）"],["check","なばなの里冬季點燈的閉園時間"]],
- [["book","機票｜回程 虎航 IT269",1],["warn","07:35 到つばめパン排隊抽號碼，8:00 開門"],["warn","15:00 前出發往機場；到機場先退稅、再托運，17:40 報到截止"],["check","名鐵 Inn 10:00 退房，行李先寄放"]]
+ [["book","機票｜去程 虎航 IT294",1],["book","住宿｜HOTEL TORIFITO KANAZAWA",1],["warn","出關搭機場巴士到金澤站"],["warn","14:00 先寄放行李，15:00 入住"],["check","ハセガワスポーツ：確認有無臨時公休"]],
+ [["book","JR｜つるぎ35號＋しらさぎ14號 指定席",0],["book","住宿｜名鐵 Inn 名古屋駅新幹線口（3 晚）",1],["warn","11:00 退房寄放行李，16:15 回來拿"],["warn","16:40 前到月台，敦賀轉乘 32 分"],["check","近江町市場：先挑好非海鮮的店"],["check","18:00 後確認 KKday 是否出團"]],
+ [["book","KKday｜白川鄉＋高山一日遊（直達展望台）",0],["warn","08:15 名古屋站集合"],["check","前一晚查展望台是否開放"]],
+ [["book","なばなの里 入村券",0],["warn","週日人多，巴士提早排隊"],["check","サトウスポーツ週日有開"],["check","確認なばなの里閉園時間"]],
+ [["book","機票｜回程 虎航 IT269",1],["warn","07:35 到つばめパン排隊"],["warn","15:00 出發，先退稅再托運，17:40 截止"],["check","10:00 退房，行李先寄放"]]
 ];
 function defaultTasks(i){return (DEFAULT_TASKS[i]||[]).map(function(t,j){return {id:"tk-"+i+"-"+j,type:t[0],t:t[1],ok:t[2]?1:0};});}
 function dayTasks(i){var d=C().days[i];return d.tasks||defaultTasks(i);}
@@ -2219,7 +2261,7 @@ function taskHtml(i,editable){
   var ts=dayTasks(i),books=ts.filter(function(t){return t.type==="book";}),others=ts.filter(function(t){return t.type!=="book";});
   var nw=others.filter(function(t){return t.type==="warn";}).length,nc=others.filter(function(t){return t.type==="check";}).length;
   var h='<div class="tk-badges">'+(nw?'<span class="tk-b warn">'+nw+' 個要注意</span>':'')+(nc?'<span class="tk-b check">'+nc+' 個出發前確認</span>':'')+'</div>';
-  if(books.length){h+='<div class="tk-sub">預訂</div><div class="tk-books">'+books.map(function(t){return '<button type="button" class="tk-book'+(t.ok?" ok":"")+'" data-tk="'+i+'|'+esc(t.id)+'" aria-pressed="'+(t.ok?"true":"false")+'">'+(t.ok?"✓ 已預訂":"○ 未預訂")+'<span>'+esc(t.t)+'</span></button>'+(editable?ed("task",t.id):"");}).join("")+'</div>';}
+  if(books.length){h+='<div class="tk-sub">預訂</div><div class="tk-books">'+books.map(function(t){return '<button type="button" class="tk-book'+(t.ok?" ok":"")+'" data-tk="'+i+'|'+esc(t.id)+'" aria-pressed="'+(t.ok?"true":"false")+'">'+'<b class="tk-st">'+(t.ok?"✓ 已預訂":"○ 未預訂")+'</b><span>'+esc(t.t)+'</span></button>'+(editable?ed("task",t.id):"");}).join("")+'</div>';}
   if(others.length){h+='<div class="tk-sub">注意事項</div>'+others.map(function(t){return '<div class="tk-row"><span class="tk-tag '+t.type+'">'+TASK_LABEL[t.type]+'</span><span class="tk-t">'+esc(t.t)+'</span>'+(editable?ed("task",t.id):"")+'</div>';}).join("");}
   return h;
 }
@@ -2261,7 +2303,7 @@ function renderHomeCards(){
 }
 var DATES_MD=["1/28","1/29","1/30","1/31","2/1"];
 document.addEventListener("click",function(e){var a=e.target.closest("[data-goday]");if(a){curDay=+a.getAttribute("data-goday");selectDay(curDay,false);}});
-var NEAR=[["ramen","拉麵","ラーメン"],["food","餐廳","レストラン"],["cafe","咖啡廳","カフェ"],["cake","甜點","スイーツ"],["konbini","便利商店","コンビニ"],["drug","藥妝店","ドラッグストア"],["wc","廁所","トイレ"],["locker","置物櫃","コインロッカー"],["atm","ATM","ATM"],["station","車站","駅"]];
+var NEAR=[["ramen","拉麵","ラーメン"],["food","餐廳","レストラン"],["cafe","咖啡廳","カフェ"],["cake","甜點","スイーツ"],["konbini","超商","コンビニ"],["drug","藥妝店","ドラッグストア"],["wc","廁所","トイレ"],["locker","置物櫃","コインロッカー"],["atm","ATM","ATM"],["station","車站","駅"]];
 function nearBtns(list){return list.map(function(n){return '<a class="near-btn" href="'+mapsSearch(n[2])+'" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 48 48"><use href="#ni-'+n[0]+'"/></svg>'+n[1]+'</a>';}).join("");}
 $("nearGrid").innerHTML=nearBtns(NEAR);
 
@@ -2366,7 +2408,7 @@ var SOS_CALLS=[["🚓","警察","110","24 小時・免費"],["🚑","救護車�
 var SOS_PHR=[["救急車を呼んでください。","請幫我叫救護車。"],["助けてください。","請幫幫我。"],["私は台湾人です。日本語が話せません。","我是台灣人，不會說日文。"],["近くの病院はどこですか？","附近的醫院在哪裡？"],["ここが痛いです。","我這裡痛。"],["パスポートをなくしました。","我的護照不見了。"],["財布を盗まれました。","我的錢包被偷了。"],["道に迷いました。このホテルに行きたいです。","我迷路了，我想去這間飯店。"]];
 function renderSos(){
   $("sosCalls").innerHTML=SOS_CALLS.map(function(c){return '<a class="sos-call" href="'+telHref(c[2])+'"><span class="sc-ic">'+c[0]+'</span><span class="sc-t"><b>'+c[1]+'</b><span class="num">'+c[2]+'</span><small>'+c[3]+'</small></span></a>';}).join("");
-  $("sosNear").innerHTML=nearBtns([["hospital","醫院","病院"],["ambulance","急診","救急病院"],["police","派出所","交番"],["pharmacy","藥局","薬局"],["konbini","便利商店","コンビニ"]]);
+  $("sosNear").innerHTML=nearBtns([["hospital","醫院","病院"],["ambulance","急診","救急病院"],["police","派出所","交番"],["pharmacy","藥局","薬局"],["konbini","超商","コンビニ"]]);
   $("sosPhr").innerHTML=SOS_PHR.map(function(p,i){return '<button type="button" class="phr-btn" data-phr="'+i+'"><b>'+p[0]+'</b><span>'+p[1]+'</span></button>';}).join("");
   $("sosHotels").innerHTML=C().hotels.map(function(h0){var h=hx(h0);return '<div class="sos-hotel"><b>'+esc(h.jp||h.name)+'</b><div>'+esc(h.addr||"")+'</div><div class="note">'+esc(h.dates||"")+(h.tel?'・<a href="'+telHref(h.tel)+'">'+esc(h.tel)+'</a>':'')+'</div><button type="button" class="mini" data-bigtext="'+esc((h.jp||h.name)+"\n"+(h.addr||""))+'">放大給司機看</button></div>';}).join("");
   $("sosMine").innerHTML=sosNotes().map(function(n){return '<div class="sos-mine"><div><b>'+esc(n.title)+'</b>'+(n.tel?' <a class="num" href="'+telHref(n.tel)+'">'+esc(n.tel)+'</a>':'')+'<div class="note">'+nl(n.text||"")+'</div></div>'+ed("sosnote",n.id)+'</div>';}).join("");
@@ -2378,13 +2420,16 @@ document.addEventListener("click",function(e){
 });
 
 /* ── 首頁依旅程階段排序 ── */
+var MORE_NAME={taskCard:"行程預覽",overviewBlk:"旅程總覽",meCardHome:"我在哪",nearCard:"找附近",tonightCard:"今晚住宿",reviewCard:"回顧",prepCard:"出發前待辦",fxCard:"匯率",wxCard:"天氣"};
 function stageOrder(){
   var now=Date.now(),stage=now<DEP?"pre":(now<=RET?"trip":"post");
-  var order={pre:["backupBanner","prepCard","taskCard","wxCard","fxCard","overviewBlk","meCardHome","tonightCard","nearCard","reviewCard"],
-             trip:["backupBanner","meCardHome","wxCard","taskCard","tonightCard","nearCard","fxCard","overviewBlk","reviewCard","prepCard"],
-             post:["reviewCard","backupBanner","overviewBlk","wxCard","meCardHome","fxCard","prepCard","taskCard","tonightCard","nearCard"]}[stage];
-  var home=$("page-home");
-  order.forEach(function(id){var el=$(id);if(el)home.appendChild(el);});
+  var cfg={pre:[["backupBanner","prepCard","wxCard","fxCard"],["taskCard","overviewBlk","meCardHome","nearCard","tonightCard","reviewCard"]],
+             trip:[["backupBanner","meCardHome","taskCard","tonightCard","wxCard","nearCard","fxCard"],["overviewBlk","prepCard","reviewCard"]],
+             post:[["reviewCard","backupBanner","overviewBlk"],["fxCard","meCardHome","prepCard","taskCard","tonightCard","nearCard","wxCard"]]}[stage];
+  var home=$("page-home"),mb=$("moreBody"),mf=$("moreFold");
+  cfg[0].forEach(function(id){var el=$(id);if(el)home.appendChild(el);});
+  home.appendChild(mf);
+  cfg[1].forEach(function(id){var el=$(id);if(el)mb.appendChild(el);});
   $("nearCard").hidden=(stage==="post");$("meCardHome").hidden=(stage==="post");
   var rc=$("reviewCard");
   if(stage==="post"){
@@ -2392,6 +2437,7 @@ function stageOrder(){
     rc.hidden=false;rc.innerHTML='<h3 class="card-h"><span class="ci"><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><use href="#i-book"/></svg></span>旅程結束了，歡迎回家</h3><p>這趟總共花了 <b class="num">'+fmtJ(tot)+'</b>（約 '+fmtT(tot*rate())+'），寫了 '+nd+' 篇日記。</p><a class="tn-btn main" href="#review" style="display:inline-block;margin-top:6px">看完整旅行回顧 →</a>';
   }else rc.hidden=true;
   document.body.setAttribute("data-stage",stage);
+  $("moreSub").textContent=cfg[1].map(function(id){return MORE_NAME[id];}).filter(function(x,i){var el=$(cfg[1][i]);return x&&el&&!el.hidden;}).join("・");
 }
 var _rhc=renderHomeCards;
 renderHomeCards=function(){_rhc();stageOrder();};
@@ -2446,13 +2492,13 @@ function renderWxCard(){
   }else if(hasTrip){
     title='旅程天氣預報';
     var MAIN=["金澤","金澤","高山","桑名（長島）","名古屋"];h=TRIP_ISO.map(function(iso,i){return wxRow(MAIN[i],C().days[i].date+' '+MAIN[i],iso);}).join("");
-    note='預報越接近出發日越準，出發前幾天再看一次。';
+    note='';
   }else{
     title='現在的天氣';
     h=["金澤","名古屋","白川鄉"].map(function(n){return wxRow(n);}).join("");
-    note='1/13 左右開始，這裡會改成顯示旅程 5 天的天氣預報。';
+    note='1/13 起改顯示旅程預報。';
   }
-  if(!WX_DATA)note='暫時抓不到天氣資料，點城市名稱可以到外部網站看。';
+  if(!WX_DATA)note='暫時抓不到，點城市看天氣。';
   c.innerHTML='<h3 class="card-h"><span class="ci"><svg viewBox="0 0 48 48" width="20" height="20" aria-hidden="true"><use href="#wx-partly"/></svg></span>'+title+'</h3><div class="wx-list">'+h+'</div>'+(note?'<p class="note">'+note+'</p>':'')+(WX_DATA?'<p class="note wx-src">天氣資料：Open-Meteo</p>':'');
 }
 
@@ -2481,7 +2527,7 @@ function applyFx(o){
 function fxNote(){
   var n=$("fxAutoNote");if(!n)return;
   $("fxAuto").checked=STATE.fxAuto!==false;
-  n.textContent=STATE.fxAuto===false?"目前用你手動輸入的匯率。":(FX_INFO?"已自動更新：¥1 = NT$"+FX_INFO.rate+"（"+FX_INFO.date+"）":"自動匯率暫時抓不到，先用目前的數字。");
+  n.textContent=STATE.fxAuto===false?"手動匯率":(FX_INFO?"已更新 "+FX_INFO.date.slice(5).replace("-","/"):"暫時抓不到，沿用目前匯率");
 }
 (function(){
   var r=$("fxRate").closest(".fx-rate");
@@ -2504,10 +2550,20 @@ $("siteVer").textContent="版本 "+SITE_VERSION;
 if(!window.TRIP_GH){var bn=$("backupBanner");if(bn)bn.hidden=false;}
 
 /* 舊資料：飯店狀態改成已訂 */
-function migHotels(){var c=STATE.content;if(!c||!c.hotels)return;var ch=false;c.hotels.forEach(function(h){if(/改訂中/.test(h.status||"")){h.status=h.id==="h2"?"已訂（已改成 1/29 起三晚）":"已訂";ch=true;}});if(ch)persist();}
+function migHotels(){var c=STATE.content;if(!c||!c.hotels)return;var ch=false;c.hotels.forEach(function(h){if(/改訂中/.test(h.status||"")){h.status=h.id==="h2"?"已訂":"已訂";ch=true;}});if(ch)persist();}
 var _rh22=renderHotels;renderHotels=function(){migHotels();_rh22();};
 var _rwx=renderWx;renderWx=function(){_rwx();renderWxCard();$("wxBox").hidden=!!WX_DATA;};
 
+
+var TXT22={"小松機場出關後直接到巴士站搭往金澤站的機場巴士": "出關搭機場巴士到金澤站", "飯店 15:00 才能入住：14:00 先寄放行李再出門": "14:00 先寄放行李，15:00 入住", "ハセガワスポーツ：週一～六 9:30–19:00，出發前確認有沒有臨時公休": "ハセガワスポーツ：確認有無臨時公休", "Torifito 11:00 退房；行李寄放飯店，16:15 回去拿": "11:00 退房寄放行李，16:15 回來拿", "16:40 前到新幹線月台，敦賀轉乘 32 分鐘": "16:40 前到月台，敦賀轉乘 32 分", "近江町市場以海鮮為主，先挑好不含海鮮的店": "近江町市場：先挑好非海鮮的店", "18:00 後看信箱：KKday 暴風雪是否出團": "18:00 後確認 KKday 是否出團", "08:15 名古屋站集合，遲到不等": "08:15 名古屋站集合", "前一晚查 shiroten.jp：白川鄉展望台有沒有開": "前一晚查展望台是否開放", "週日人多：長島巴士、回程巴士提早排隊": "週日人多，巴士提早排隊", "サトウスポーツ週一公休（1/31 週日有開）": "サトウスポーツ週日有開", "なばなの里冬季點燈的閉園時間": "確認なばなの里閉園時間", "07:35 到つばめパン排隊抽號碼，8:00 開門": "07:35 到つばめパン排隊", "15:00 前出發往機場；到機場先退稅、再托運，17:40 報到截止": "15:00 出發，先退稅再托運，17:40 截止", "名鐵 Inn 10:00 退房，行李先寄放": "10:00 退房，行李先寄放", "Torifito 金澤：取消一筆、另一筆改 1/28 一晚單人": "訂 Torifito 金澤（1/28）", "名鐵 Inn：改為 1/29–2/1 三晚": "訂名鐵 Inn 名古屋（1/29–2/1）", "先確認兩筆的免費取消期限（Booking.com）": "", "先訂好新的再取消舊的；確認 1/29 有房": "", "選「直達展望台」方案；看清取消規定": "直達展望台方案", "乘車日 1 個月前 10:00（e5489），兩段一起訂": "1 個月前 10:00 開賣（e5489）", "便利商店預購，現場可能排 30 分以上": "超商可預購", "入境＋機場退稅都可用": "入境、退稅用", "含班機延誤、雪天行程取消": "含延誤、行程取消", "白川鄉、なばなの里夜間很冷": "", "金澤、名古屋交通都能用": "", "shiroten.jp，冬季可能除雪關閉": "shiroten.jp", "暴風雪前一天 18:00 判定": "前一天 18:00 判定", "到機場先去稅關 KIOSK，再托運": "先退稅再托運", "改訂後的新版本": "", "已訂（已改成 1/29 起三晚）": "已訂", "截圖，入境與退稅用": "截圖存手機", "集合點與時間再看一次": ""};
+function migText(){var c=STATE.content;if(!c)return;var ch=false;
+  function fx(o,k){if(o&&typeof o[k]==="string"&&TXT22.hasOwnProperty(o[k])){o[k]=TXT22[o[k]];ch=true;}}
+  (c.days||[]).forEach(function(d){(d.tasks||[]).forEach(function(t){fx(t,"t");});});
+  var L=c.lists||{};Object.keys(L).forEach(function(k){(L[k]||[]).forEach(function(it){fx(it,"t");fx(it,"s");if(it.due==="飯店確定後"){it.due="12 月";ch=true;}});});
+  (c.hotels||[]).forEach(function(h){fx(h,"status");});
+  if(ch)persist();}
+(function(){var mf=$("moreFold");try{if(localStorage.getItem("kn2027-more")==="1")mf.open=true;}catch(e){}mf.addEventListener("toggle",function(){try{localStorage.setItem("kn2027-more",mf.open?"1":"0");}catch(e){}});})();
+var _ra24=renderAll;renderAll=function(){migText();_ra24();};
 (function(){var i=todayIdx();curDay=i>=0?i:0;})();
 (function(){
   var d=todayIdx();mapDay=d>=0?d:curDay;setMode(d>=0?"live":"preview");
