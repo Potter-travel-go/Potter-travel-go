@@ -825,6 +825,56 @@ body.dark .pill:not(.c):not(.y):not(.g):not(.w){color:var(--ink)}
 body.dark .me-txt .fare{color:var(--ink-soft)}
 body.dark .sos-call:first-child,body.dark .sos-call:nth-child(2){background:#4A2A25}
 body.dark .sos-call small{color:var(--ink-soft)}
+
+/* v32 */
+.me-txt{min-width:0}
+.me-late{display:flex;flex-wrap:wrap;align-items:center;gap:2px 8px;margin-top:8px;padding:5px 10px;border-radius:10px;background:rgba(255,255,255,.65);font-size:13.5px;width:fit-content;max-width:100%;box-sizing:border-box}
+.me-late .bi{width:16px;height:16px;margin:0}
+.me-late b{font-weight:600}
+.me-late span{color:var(--ink-soft)}
+.me-late.soon{background:#FDF1D0}.me-late.soon span{color:#7A5A12;font-weight:600}
+.me-late.late{background:#FBE0DA}.me-late.late span{color:#A2402F;font-weight:600}
+.me-late.fixed{color:var(--ink-soft)}
+.edit-delay{background:#FDF1D0;border-radius:10px;padding:8px 10px;margin:-4px 0 10px;font-size:13px;color:#5A4410}
+body.dark .me-late{background:rgba(0,0,0,.25)}
+body.dark .me-late.soon{background:#4A3E1E}body.dark .me-late.soon span{color:#F3D28A}
+body.dark .me-late.late{background:#52261F}body.dark .me-late.late span{color:#F4B3A6}
+body.dark .edit-delay{background:#4A3E1E;color:#F3E2B5}
+
+/* v33 定位 */
+.geo-btn{display:inline-flex;align-items:center;gap:4px;margin-top:8px;font-family:inherit;font-size:12.5px;color:var(--ink);background:rgba(255,255,255,.6);border:1.6px dashed var(--edge);border-radius:999px;padding:2px 10px;cursor:pointer}
+.geo-btn .bi{width:15px;height:15px;margin:0}
+.geo-btn.on{border-style:solid;background:var(--tone-l,#E4ECF0)}
+.geo-note{font-size:12.5px;color:var(--ink-soft);margin:1px 0 4px}
+.geo-plan{color:var(--ink-soft);font-size:13px}
+.geo-test-note{margin-top:6px;line-height:1.55}
+.geo-test-note b{display:inline;font-size:13px;font-weight:600;margin-right:4px}
+.geo-ok{color:#3F6B2E}.geo-bad{color:#A2402F}
+body.dark .geo-ok{color:#A8D39A}body.dark .geo-bad{color:#F4B3A6}
+.geo-sug{margin-top:8px;font-size:13px;display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.geo-sug .mini{font-size:13px;padding:2px 10px;background:var(--tone-m,#BCCAD2)}
+body.dark .geo-btn{background:rgba(0,0,0,.2)}
+
+/* ═════ v34 ═════ */
+.me-card{display:grid!important;grid-template-columns:56px minmax(0,1fr);gap:4px 14px;align-items:start}
+.me-card>svg{grid-row:1;align-self:center}
+.me-txt{grid-column:2}
+.me-actions{grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;padding-top:10px;border-top:1.6px dashed rgba(62,58,57,.18)}
+.me-actions[hidden]{display:none}
+.me-actions>*{display:inline-flex!important;align-items:center;gap:5px;margin:0!important;font-family:inherit;font-size:13.5px!important;line-height:1.3;padding:6px 12px!important;border-radius:999px!important;text-decoration:none;color:var(--ink);cursor:pointer;white-space:nowrap}
+.me-actions .bi{width:16px!important;height:16px!important;margin:0!important}
+.me-actions .nav-go{background:var(--tone-m,#BCCAD2)!important;border:2px solid transparent!important;font-weight:600;white-space:normal;flex:1 1 100%;justify-content:center}
+.me-actions .me-go,.me-actions .geo-btn{background:var(--paper)!important;border:1.8px solid var(--edge)!important}
+.me-actions .geo-btn.on{background:var(--tone-l,#E4ECF0)!important}
+.geo-sug .mini{background:var(--tone-m,#BCCAD2)!important;font-weight:600}
+body.dark .me-actions{border-top-color:rgba(255,255,255,.14)}
+/* 頂端精簡：手機上把編輯、重新整理收進「更多」 */
+@media (max-width:760px){
+  body:not(.no-bnav) #reloadBtn{display:none}
+  body:not(.no-bnav) #editToggle:not([aria-pressed="true"]){display:none}
+}
+.bn-tools{display:flex;flex-direction:column;gap:8px;margin:0 0 14px}
+.bn-tools .btn{justify-content:center;font-size:15px}
 </style>
 <!-- ═══ Firebase 同步（GitHub Pages 版）═══ -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -1032,7 +1082,7 @@ const TRIP_USER = "potter";   // 資料存在 Firestore：data/users/potter/trip
     </div>
   </div>
 
-  <div class="me-card" id="meCardHome"><svg aria-hidden="true" overflow="visible" viewBox="0 0 60 64"><g class="avSlot"><use href="#i-me"/></g><use href="#o-none" id="ofHome"/></svg><div class="me-txt" id="meHome"></div><a class="me-go" href="#map">看地圖</a></div>
+  <div class="me-card" id="meCardHome"><svg aria-hidden="true" overflow="visible" viewBox="0 0 60 64"><g class="avSlot"><use href="#i-me"/></g><use href="#o-none" id="ofHome"/></svg><div class="me-txt" id="meHome"></div><div class="me-actions" id="meActHome"><a class="me-go" href="#map"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-map"/></svg>看地圖</a></div></div>
 
   <details class="fold more-fold" id="moreFold"><summary><span class="ic" style="background:var(--tone-l,#E4ECF0)"><svg><use href="#i-more"/></svg></span><span class="ttl">更多<small id="moreSub"></small></span><span class="chev" aria-hidden="true"></span></summary><div class="fold-body more-body" id="moreBody"><div class="layout-tools" id="layoutTools"><button type="button" class="btn ghost" id="layoutBtn"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-more"/></svg>調整首頁卡片</button></div></div></details>
   <div class="backup-banner" id="backupBanner" hidden><b>這是備份版。</b>平常請用 GitHub 上的主版本（加在手機主畫面的那個）；這一版只在主版本打不開時使用，資料會另外存。</div>
@@ -1086,7 +1136,7 @@ const TRIP_USER = "potter";   // 資料存在 Firestore：data/users/potter/trip
 <section class="page" id="page-map" data-page="map" hidden>
   <div class="page-head"><div class="badge" style="background:var(--green)"><svg><use href="#i-map"/></svg></div><h2>每日地圖</h2></div>
   <div class="day-tabs" role="tablist" aria-label="選擇日期" id="mapTabs"></div>
-  <div class="me-card"><svg aria-hidden="true" overflow="visible" viewBox="0 0 60 64"><g class="avSlot"><use href="#i-me"/></g><use href="#o-none" id="ofCard"/></svg><div class="me-txt" id="meText" aria-live="polite"></div></div>
+  <div class="me-card"><svg aria-hidden="true" overflow="visible" viewBox="0 0 60 64"><g class="avSlot"><use href="#i-me"/></g><use href="#o-none" id="ofCard"/></svg><div class="me-txt" id="meText" aria-live="polite"></div><div class="me-actions" id="meActMap"></div></div>
   <div class="me-ctrl">
     <div class="seg" role="group" aria-label="時間來源" id="modeSeg"><button type="button" data-mode="live" aria-pressed="false">跟著手機時間</button><button type="button" data-mode="preview" aria-pressed="true">預覽</button></div>
     <label class="me-slider" id="meSliderWrap"><span class="num" id="meTime">10:00</span><input type="range" id="meSlider" min="300" max="1440" step="5" value="600" aria-label="預覽時間"></label>
@@ -2804,7 +2854,7 @@ function fxNote(){
 })();
 
 /* ── 重新整理、版本 ── */
-var SITE_VERSION="2026.11.21・v31b";
+var SITE_VERSION="2026.11.21・v35";
 $("reloadBtn").addEventListener("click",function(){
   var b=this;b.textContent="更新中…";
   var go=function(){location.reload();};
@@ -3127,6 +3177,106 @@ var _sp31=showPage;showPage=function(name){_sp31.apply(this,arguments);try{bnSyn
   box.addEventListener("click",function(e){var b=e.target.closest("[data-theme]");if(!b)return;try{localStorage.setItem(KEY,b.getAttribute("data-theme"));}catch(_){}apply();});
   if(mq&&mq.addEventListener)mq.addEventListener("change",apply);
   apply();
+})();
+
+/* ═════ v32：「我在哪」顯示最晚出發；編輯時提示延後 ═════ */
+var _sh32=statusHtml;statusHtml=function(d,si,t){
+  var html=_sh32.apply(this,arguments);
+  try{
+    var sub=C().maps[d][si],L=locate(d,sub,t);if(!L||L.type!=="stay"||L.back)return html;
+    var st=sortedStops(sub),p=legPlan(st,L.i);if(!p)return html;
+    if(p.fixed)return html+'<div class="me-late fixed"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-clock"/></svg>'+esc(p.text)+'</div>';
+    var j=new Date(t+9*3600000),now=j.getUTCHours()*60+j.getUTCMinutes(),left=p.latest-now,cls="",msg="";
+    if(left<0){cls="late";msg="已經超過 "+(-left)+" 分";}else if(left<=20){cls="soon";msg=left===0?"現在就要出發":"還有 "+left+" 分";}else msg="還有 "+(left>=60?Math.floor(left/60)+" 小時 "+(left%60?left%60+" 分":""):left+" 分");
+    return html+'<div class="me-late '+cls+'"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-clock"/></svg><b>最晚 '+m2hm(p.latest)+' 出發</b><span>'+msg+'</span></div>';
+  }catch(e){return html;}
+};
+var _oe32=openEdit;openEdit=function(kind,id){
+  _oe32.apply(this,arguments);
+  var d=kind==="item"?curDay:(kind==="stop"?mapDay:-1);if(d<0)return;
+  var info=delayInfo(STATE.content||DEFAULT,d);if(!info)return;
+  var h=sheet.querySelector("h3");if(h)h.insertAdjacentHTML("afterend",'<p class="note edit-delay">這天目前延後了 '+info.add+' 分，這裡顯示的是<b>原本排定的時間</b>，直接改原本的時間就好，延後會自動再加上去。</p>');
+};
+
+/* ═════ v33：用手機定位判斷「我在哪」 ═════ */
+var GPS={on:false,pos:null,err:"",watch:null};
+try{GPS.on=localStorage.getItem("kn2027-geo")==="1";}catch(e){}
+function geoStart(){
+  if(!navigator.geolocation){GPS.err="這個瀏覽器不支援定位";geoRefresh();return;}
+  var ok=function(p){GPS.pos={lat:p.coords.latitude,lon:p.coords.longitude,acc:p.coords.accuracy,ts:Date.now()};GPS.err="";geoRefresh();};
+  var bad=function(e){GPS.err=e&&e.code===1?"沒有定位權限，先照預定時間推算（可到手機設定開啟）":"暫時抓不到位置，先照預定時間推算";geoRefresh();};
+  try{navigator.geolocation.getCurrentPosition(ok,bad,{enableHighAccuracy:true,timeout:15000,maximumAge:60000});
+    if(GPS.watch==null)GPS.watch=navigator.geolocation.watchPosition(ok,function(){},{enableHighAccuracy:false,maximumAge:60000});}catch(e){bad();}
+}
+function geoStop(){if(GPS.watch!=null&&navigator.geolocation)navigator.geolocation.clearWatch(GPS.watch);GPS.watch=null;GPS.pos=null;GPS.err="";}
+var _geoT=0;function geoRefresh(){clearTimeout(_geoT);_geoT=setTimeout(function(){try{updateHome();}catch(e){}try{if(!$("page-map").hidden&&meMode==="live")updateMe(false);}catch(e){}},80);}
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-geo]");if(b){GPS.on=!GPS.on;try{localStorage.setItem("kn2027-geo",GPS.on?"1":"0");}catch(_){}if(GPS.on)geoStart();else geoStop();geoRefresh();return;}
+  var g=e.target.closest("[data-geodelay]");if(g){var q=g.getAttribute("data-geodelay").split("|"),d=+q[0],from=+q[1],n=+q[2];
+    STATE.delays=Object.assign({},STATE.delays||{});var cur=STATE.delays[d];STATE.delays[d]=cur?{from:Math.min(cur.from,from),add:Math.min(180,cur.add+n)}:{from:from,add:n};persist();renderAll();}
+});
+document.addEventListener("visibilitychange",function(){if(GPS.on&&!document.hidden)geoStart();});
+if(GPS.on&&todayIdx()>=0)setTimeout(geoStart,500);
+function fmtDist(km){return km<1?Math.round(km*1000/10)*10+" 公尺":km.toFixed(1)+" 公里";}
+function geoLocate(d){
+  if(!GPS.pos||Date.now()-GPS.pos.ts>5*60000)return null;
+  var best=null,now=Date.now();
+  (C().maps[d]||[]).forEach(function(sub,k){sortedStops(sub).forEach(function(x,i){
+    var km=hav(GPS.pos.lat,GPS.pos.lon,x.lat,x.lon),dt=Math.abs(jst(d,x.arr)-now);
+    if(!best||km<best.km-0.05||(Math.abs(km-best.km)<=0.05&&dt<best.dt))best={k:k,i:i,x:x,km:km,dt:dt,st:sortedStops(sub)};});});
+  if(!best)return null;best.near=best.km<=Math.max(0.35,Math.min(0.8,(GPS.pos.acc||0)/1000*1.5));return best;
+}
+var _sh33=statusHtml;statusHtml=function(d,si,t){
+  var html=_sh33.apply(this,arguments),live=Math.abs(t-Date.now())<120000&&todayIdx()===d;
+  if(!live)return html;
+  var btn='<button type="button" class="geo-btn'+(GPS.on?' on':'')+'" data-geo><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#ni-pin"/></svg>'+(GPS.on?'定位中・點一下關閉':'改用手機定位判斷')+'</button>';
+  if(!GPS.on)return html+btn;
+  var G=geoLocate(d);
+  if(!G)return html+'<div class="geo-note">'+(GPS.err?esc(GPS.err):'正在取得位置…先照預定時間顯示')+'</div>'+btn;
+  var j=new Date(Date.now()+9*3600000),nowM=j.getUTCHours()*60+j.getUTCMinutes();
+  if(!G.near)return '<b>移動中</b><div class="geo-note">定位：離「'+esc(G.x.name)+'」約 '+fmtDist(G.km)+'</div>'+html.replace(/^<b>[^<]*<\/b>/,'<span class="geo-plan">預定：</span>')+btn;
+  var x=G.x,st=G.st,nx=st[G.i+1],h='<b>在「'+esc(x.name)+'」附近</b><div class="geo-note">依手機定位・約 '+fmtDist(G.km)+'</div>';
+  if(nx){h+='下一站：'+esc(nx.name)+'・預定 '+esc(x.dep)+' 出發<div class="near">'+legHtml(x)+'</div><a class="nav-go" href="'+navUrl(nx.lat+","+nx.lon,null,MODE_GM[x.mode]||"transit")+'" target="_blank" rel="noopener"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#ni-compass"/></svg>從我這裡導航到「'+esc(nx.name)+'」</a>';
+    var p=legPlan(st,G.i);
+    if(p&&p.fixed)h+='<div class="me-late fixed"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-clock"/></svg>'+esc(p.text)+'</div>';
+    else if(p){var left=p.latest-nowM,cls=left<0?"late":(left<=20?"soon":""),msg=left<0?"已經超過 "+(-left)+" 分":(left===0?"現在就要出發":"還有 "+(left>=60?Math.floor(left/60)+" 小時 "+(left%60?left%60+" 分":""):left+" 分"));
+      h+='<div class="me-late '+cls+'"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-clock"/></svg><b>最晚 '+m2hm(p.latest)+' 出發</b><span>'+msg+'</span></div>';
+      if(left<0&&!(p.fixed)){var n=Math.min(180,Math.ceil((-left)/15)*15);h+='<div class="geo-sug">比預定慢了約 '+(-left)+' 分，要把後面的行程延後嗎？<button type="button" class="mini" data-geodelay="'+d+'|'+hm2m(x.dep)+'|'+n+'">延後 '+n+' 分</button></div>';}}
+  }else h+='今天最後一站，好好休息';
+  return h+btn;
+};
+
+/* ═════ v34：「我在哪」按鈕列、頂端精簡 ═════ */
+function meLayout(txtId,actId){
+  var box=$(txtId),act=$(actId);if(!box||!act)return;
+  act.querySelectorAll(".nav-go,.geo-btn").forEach(function(n){n.remove();});
+  var nav=box.querySelector(".nav-go"),geo=box.querySelector(".geo-btn"),go=act.querySelector(".me-go");
+  if(nav)act.insertBefore(nav,act.firstChild);
+  if(geo)act.appendChild(geo);
+  if(go&&nav)act.insertBefore(go,nav.nextSibling);
+  act.hidden=!act.children.length;
+}
+var GPS_TEST="";
+var _uh34=updateHome;updateHome=function(){_uh34.apply(this,arguments);
+  if(todayIdx()<0&&Date.now()<DAY0){var box=$("meHome");box.insertAdjacentHTML("beforeend",'<div class="geo-note geo-test-note">旅行期間（1/28–2/1）這裡會出現「改用手機定位判斷」。'+(GPS_TEST?'<br>'+GPS_TEST:'現在可以先測試一次，讓手機記住定位權限。')+'</div><button type="button" class="geo-btn" data-geotest><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#ni-pin"/></svg>先測試定位</button>');}
+  meLayout("meHome","meActHome");};
+document.addEventListener("click",function(e){
+  var b=e.target.closest("[data-geotest]");if(!b)return;
+  if(!navigator.geolocation){GPS_TEST="這個瀏覽器不支援定位。";updateHome();return;}
+  GPS_TEST="正在取得位置…";updateHome();
+  navigator.geolocation.getCurrentPosition(function(p){var km=hav(p.coords.latitude,p.coords.longitude,36.5781,136.6480);GPS_TEST="<b class=\"geo-ok\">定位成功</b>精準度約 "+Math.round(p.coords.accuracy)+" 公尺，你離金澤站約 "+Math.round(km)+" 公里。到日本後就能直接使用。";updateHome();},
+    function(err){GPS_TEST=err&&err.code===1?"<b class=\"geo-bad\">沒有定位權限</b>請到手機「設定 → 隱私權 → 定位服務」允許瀏覽器（或主畫面 App）使用定位，再測一次。":"暫時抓不到位置，可以到室外或靠窗再試一次。";updateHome();},{enableHighAccuracy:true,timeout:15000,maximumAge:0});
+});
+var _um34=updateMe;updateMe=function(){_um34.apply(this,arguments);meLayout("meText","meActMap");};
+(function(){
+  var more=$("bnMore");if(!more)return;
+  more.addEventListener("click",function(){setTimeout(function(){
+    var grid=sheet.querySelector(".bn-grid");if(!grid)return;
+    var ed=$("editToggle"),editing=ed&&ed.getAttribute("aria-pressed")==="true";
+    grid.insertAdjacentHTML("afterend",'<div class="bn-tools"><button type="button" class="btn ghost" id="bnEdit"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-note"/></svg>'+(editing?'結束編輯':'編輯內容')+'</button><button type="button" class="btn ghost" id="bnReload"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-delay"/></svg>重新整理、抓最新版</button></div>');
+    $("bnEdit").onclick=function(){closeForm();ed.click();};
+    $("bnReload").onclick=function(){closeForm();$("reloadBtn").click();};
+  },0);});
 })();
 var _ra24=renderAll;renderAll=function(){migText();_ra24();};
 (function(){var i=todayIdx();curDay=i>=0?i:0;})();
