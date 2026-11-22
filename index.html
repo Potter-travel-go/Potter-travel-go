@@ -877,6 +877,7 @@ body.dark .me-actions{border-top-color:rgba(255,255,255,.14)}
 .bn-tools .btn{justify-content:center;font-size:15px}
 
 /* v36 Suica */
+.pin-pill{display:inline-flex;align-items:center;gap:3px}.pin-pill .bi{width:14px;height:14px;margin:0}
 .ic-chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;line-height:1.35;border-radius:999px;padding:2px 9px;margin:2px 0;color:#3E3A39;white-space:normal}
 .ic-chip .bi{width:14px;height:14px;margin:0;flex:none}
 .ic-chip.ok{background:#E3EEDC}.ic-chip.no{background:#FBE0DA;font-weight:600}.ic-chip.warn{background:#FDF1D0}
@@ -1410,7 +1411,7 @@ var DEFAULT={
    {id:"d4",t:"10:45",k:"move",title:"地下鐵東山線 中村公園 → 栄（約 15 分）",desc:"約 ¥270",tags:["subway"]},
    {id:"d6",t:"11:05",k:"shop",title:"Alpen NAGOYA（On、HOKA）",desc:"ナディアパーク B1–5F，10:30–20:00；羽球拍備案",tags:["walk"],must:1,q:"Alpen NAGOYA ナディアパーク"},
    {id:"d7",t:"12:30",k:"",title:"午餐自由覓食",desc:"栄・矢場町一帶"},
-   {id:"d8",t:"13:10",k:"shop",title:"栄・矢場町自由逛街",desc:"名古屋 PARCO、松坂屋、想去的店（相機已在台灣買好）",tags:["walk"],q:"名古屋PARCO"},
+   {id:"d8",t:"13:10",k:"shop",title:"栄・矢場町自由逛街",desc:"名古屋 PARCO、LACHIC、中日ビル、松坂屋（收藏頁有整理）",tags:["walk"],q:"名古屋PARCO"},
    {id:"d9",t:"14:10",k:"move",title:"地下鐵回名古屋 → 名鐵巴士往長島溫泉",desc:"巴士約 55 分，¥1,400，可刷 Suica；週日人多，提早排隊",tags:["subway","bus"]},
    {id:"d10",t:"15:15",k:"shop",title:"ジャズドリーム長島 Outlet（約 2.5 小時）",desc:"BEAMS、UNITED ARROWS、URBAN RESEARCH…（10:00–20:00）",tags:["walk"],must:1,q:"ジャズドリーム長島"},
    {id:"d11",t:"17:45",k:"move",title:"搭車往なばなの里（約 15 分）",tags:["bus"]},
@@ -1530,7 +1531,7 @@ DEFAULT.days.forEach(function(d,i){d.notes=d.notes.map(function(t,j){return {id:
 /* ═════════ 儲存：帳號（db）優先，本機備援 ═════════ */
 var LS_KEY="kn2027-state";
 var STATE={checks:{},expenses:[],rate:0.2,content:null,inspo:[],wish:[],diary:{},fxAuto:true,homeLayout:{}};
-try{var ls=JSON.parse(localStorage.getItem(LS_KEY)||"null");if(ls&&typeof ls==="object"){STATE.fxAuto=ls.fxAuto!==false;STATE.homeLayout=ls.homeLayout||{};STATE.delays=ls.delays||{};STATE.checks=ls.checks||{};STATE.expenses=ls.expenses||[];STATE.rate=ls.rate||0.2;STATE.content=ls.content||null;STATE.mapTone=ls.mapTone||"blue";STATE.passes=ls.passes||[];STATE.inspo=ls.inspo||[];STATE.wish=ls.wish||[];STATE.diary=ls.diary||{};}}catch(e){}
+try{var ls=JSON.parse(localStorage.getItem(LS_KEY)||"null");if(ls&&typeof ls==="object"){STATE.fxAuto=ls.fxAuto!==false;STATE.homeLayout=ls.homeLayout||{};STATE.delays=ls.delays||{};STATE.seeded=ls.seeded||[];STATE.checks=ls.checks||{};STATE.expenses=ls.expenses||[];STATE.rate=ls.rate||0.2;STATE.content=ls.content||null;STATE.mapTone=ls.mapTone||"blue";STATE.passes=ls.passes||[];STATE.inspo=ls.inspo||[];STATE.wish=ls.wish||[];STATE.diary=ls.diary||{};}}catch(e){}
 var PVER=0,_CC={};
 function C(){var base=STATE.content||DEFAULT,dl=STATE.delays||{},key=JSON.stringify(dl);
   if(key==="{}")return base;
@@ -1538,7 +1539,7 @@ function C(){var base=STATE.content||DEFAULT,dl=STATE.delays||{},key=JSON.string
   var v=applyDelays(base,dl);_CC={base:base,key:key,ver:PVER,v:v};return v;}
 function W(){if(!STATE.content)STATE.content=clone(DEFAULT);return STATE.content;}
 var dbRef=null,writing=false,dirty=false,saveTimer=null,lastJSON="";
-function snapshotState(){return {passes:STATE.passes||[],mapTone:STATE.mapTone||"blue",checks:STATE.checks,expenses:STATE.expenses,rate:STATE.rate,content:STATE.content,inspo:STATE.inspo,wish:STATE.wish,diary:STATE.diary,fxAuto:STATE.fxAuto!==false,homeLayout:STATE.homeLayout||{},delays:STATE.delays||{}};}
+function snapshotState(){return {passes:STATE.passes||[],mapTone:STATE.mapTone||"blue",checks:STATE.checks,expenses:STATE.expenses,rate:STATE.rate,content:STATE.content,inspo:STATE.inspo,wish:STATE.wish,diary:STATE.diary,fxAuto:STATE.fxAuto!==false,homeLayout:STATE.homeLayout||{},delays:STATE.delays||{},seeded:STATE.seeded||[]};}
 function saveLocal(){try{localStorage.setItem(LS_KEY,JSON.stringify(snapshotState()));}catch(e){}}
 function flush(){
   if(!dbRef)return;
@@ -1568,7 +1569,7 @@ function setSync(ok){var c=$("syncChip");c.textContent=ok?"已同步（Firebase�
           STATE.checks=Object.assign({},d.checks||{});
           STATE.expenses=Array.isArray(d.expenses)?d.expenses.slice():[];
           STATE.rate=typeof d.rate==="number"?d.rate:0.2;
-          STATE.content=d.content?clone(d.content):null;STATE.mapTone=d.mapTone||STATE.mapTone||"blue";STATE.passes=Array.isArray(d.passes)?d.passes.slice():[];STATE.inspo=Array.isArray(d.inspo)?d.inspo.slice():[];STATE.wish=Array.isArray(d.wish)?d.wish.slice():[];STATE.diary=Object.assign({},d.diary||{});STATE.fxAuto=d.fxAuto!==false;STATE.homeLayout=d.homeLayout&&typeof d.homeLayout==="object"?clone(d.homeLayout):{};STATE.delays=d.delays&&typeof d.delays==="object"?clone(d.delays):{};
+          STATE.content=d.content?clone(d.content):null;STATE.mapTone=d.mapTone||STATE.mapTone||"blue";STATE.passes=Array.isArray(d.passes)?d.passes.slice():[];STATE.inspo=Array.isArray(d.inspo)?d.inspo.slice():[];STATE.wish=Array.isArray(d.wish)?d.wish.slice():[];STATE.diary=Object.assign({},d.diary||{});STATE.fxAuto=d.fxAuto!==false;STATE.homeLayout=d.homeLayout&&typeof d.homeLayout==="object"?clone(d.homeLayout):{};STATE.delays=d.delays&&typeof d.delays==="object"?clone(d.delays):{};STATE.seeded=Array.isArray(d.seeded)?d.seeded.slice():(STATE.seeded||[]);
           lastJSON=JSON.stringify(snapshotState());
           saveLocal();if(!modalOpen&&!isTyping())renderAll();else pendingRender=true;
         }
@@ -2228,7 +2229,7 @@ function renderInspo(){
     var s=SRC[srcOf(x.url)],fish=x.cat==="美食"?(x.nofish?'<span class="pill g">✓ 無海鮮</span>':'<span class="pill y">還沒確認海鮮</span>'):"";
     return '<article class="inspo'+(x.been?" been":"")+'"><a class="src" href="'+esc(safeUrl(x.url))+'" target="_blank" rel="noopener" style="background:'+s[2]+'" aria-label="打開'+s[1]+'"><b>'+s[0]+'</b><small>'+s[1]+'</small></a>'+
       '<div class="body"><h3>'+esc(x.title)+(x.been?' <span class="pill">已去</span>':'')+'</h3>'+(x.note?'<p>'+nl(x.note)+'</p>':'')+
-      '<div class="row"><span class="pill w">'+esc(x.cat)+'</span>'+(x.day?'<span class="pill c">'+esc(x.day)+'</span>':'<span class="pill">日期未定</span>')+(x.near?'<span class="pill">📍 '+esc(x.near)+'</span>':'')+fish+'</div>'+
+      '<div class="row"><span class="pill w">'+esc(x.cat)+'</span>'+(x.day?'<span class="pill c">'+esc(x.day)+'</span>':'<span class="pill">日期未定</span>')+(x.near?'<span class="pill pin-pill"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#ni-pin"/></svg>'+esc(x.near)+'</span>':'')+fish+'</div>'+
       '<div class="acts"><a class="mini" href="'+esc(safeUrl(x.url))+'" target="_blank" rel="noopener">打開原文</a><button type="button" class="mini" data-inspo-been="'+x.id+'">'+(x.been?"改回想去":"標成已去")+'</button><button type="button" class="mini" data-inspo-plan="'+x.id+'">加入行程</button><button type="button" class="mini" data-inspo-ed="'+x.id+'">改</button></div></div></article>';
   }).join("");
 }
@@ -2244,7 +2245,7 @@ function planInspo(id){
   var x=STATE.inspo[findIdx(STATE.inspo,id)];if(!x)return;
   var kmap={"美食":"","景點":"sight","購物":"shop","穿搭":"shop","其他":""};
   openForm({title:"加入行程",fields:[{k:"day",label:"哪一天",type:"select",opts:dayOpts(false),req:1},{k:"t",label:"時間",type:"time",req:1},{k:"title",label:"行程標題",full:1,req:1},{k:"desc",label:"說明",full:1},{type:"hint",text:"加入後，時間軸上會出現「原貼文」連結，點了就能回到這則貼文。"}],
-    values:{day:x.day||C().days[curDay].date,t:"12:00",title:x.title,desc:x.near?("📍 "+x.near):""},
+    values:{day:x.day||C().days[curDay].date,t:"12:00",title:x.title,desc:x.near?("地點："+x.near):""},
     onSave:function(v){if(!okTime(v.t))return "請填時間。";
       var di=C().days.map(function(d){return d.date;}).indexOf(v.day);if(di<0)return "請選擇日期。";
       W().days[di].items.push({id:uid(),t:v.t,k:kmap[x.cat]||"",title:v.title,desc:v.desc,url:x.url,q:srcOf(x.url)==="gm"?"":v.title});
@@ -2856,7 +2857,7 @@ function fxNote(){
 })();
 
 /* ── 重新整理、版本 ── */
-var SITE_VERSION="2026.11.22・v36";
+var SITE_VERSION="2026.11.22・v37";
 $("reloadBtn").addEventListener("click",function(){
   var b=this;b.textContent="更新中…";
   var go=function(){location.reload();};
@@ -3297,7 +3298,7 @@ function migV36(){var c=STATE.content;if(!c||c._v36)return;
         if(it.id==="d7")it.t="12:30";
         if(it.id==="d13"&&/直達巴士/.test(it.title)){it.title="名鐵巴士回名古屋（約 35 分）";it.desc="¥1,200，可刷 Suica（加班車可能不行）";}
         if(it.id==="d9"&&it.desc&&it.desc.indexOf("Suica")<0)it.desc=it.desc.replace("¥1,400；","¥1,400，可刷 Suica；");
-        if(it.id==="d8"&&/レモン社|相機/.test(it.title)){it.t="13:10";it.title="栄・矢場町自由逛街";it.desc="名古屋 PARCO、松坂屋、想去的店（相機已在台灣買好）";it.q="名古屋PARCO";}
+        if(it.id==="d8"&&/レモン社|相機/.test(it.title)){it.t="13:10";it.title="栄・矢場町自由逛街";it.desc="名古屋 PARCO、LACHIC、中日ビル、松坂屋（收藏頁有整理）";it.q="名古屋PARCO";}
         if(it.id==="d12"&&it.desc&&it.desc.indexOf("3,200")<0)it.desc="1/31 入村券 ¥3,200（超商預購便宜 ¥200）；附園內可用的 ¥500 金券 2 張；"+it.desc;});}
     var m=c.maps&&c.maps[3]&&c.maps[3][0];
     if(m){m.stops=m.stops.filter(function(x){return x.id!=="s26";});m.stops.forEach(function(x){
@@ -3323,6 +3324,23 @@ function icInfo(x){
 }
 var _lh36=legHtml;legHtml=function(x){var h=_lh36.apply(this,arguments),ic=icInfo(x);if(!ic)return h;
   return h+'<span class="ic-chip '+ic.c+'"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-ic"/></svg>'+ic.t+'</span>';};
+
+/* ═════ v37：1/31 栄自由時間的收藏 ═════ */
+var SEED_SAKAE=[
+ ["s37-1","名古屋PARCO（東館・西館・南館）","名古屋PARCO","約 350 間店，服飾、雜貨、選物店集中；矢場町站旁。約 11:00–20:00（部分店家不同）。時間有限就先逛西館、南館。"],
+ ["s37-2","LACHIC（ラシック）","ラシック 名古屋 栄","名古屋限定店多的流行百貨：服飾、配件、戶外用品、生活雜貨都有，挑高中庭好逛。"],
+ ["s37-3","中日ビル","中日ビル 名古屋 栄","2024 年開幕，B1–5F 有雜貨、地方特產和餐廳；商店 10:00–20:00，地下直通栄地下街，可以順便當午餐地點。"],
+ ["s37-4","クリエイターズショップ・ループ","ナディアパーク デザインセンタービル","在 Alpen 所在的ナディアパーク 1F，名古屋在地創作者的小物、襪子、器皿；11:00–20:00，展到 2027/3/25。逛完 Alpen 順路。"],
+ ["s37-5","松坂屋 名古屋店","松坂屋 名古屋店","矢場町站旁的老牌大型百貨（本館・北館・南館）；B1 美食街可以外帶名古屋美食。約 10:00–19:30（部分樓層到 20:00）。"]
+];
+function seedSakae(){
+  STATE.seeded=STATE.seeded||[];if(STATE.seeded.indexOf("sakae37")>-1)return;
+  var have={};STATE.inspo.forEach(function(x){have[x.id]=1;});
+  var add=SEED_SAKAE.filter(function(r){return !have[r[0]];}).map(function(r){return {id:r[0],url:"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(r[2]),title:r[1],note:r[3],cat:"購物",day:"1/31",near:"栄・矢場町"};});
+  STATE.inspo=add.concat(STATE.inspo);STATE.seeded=STATE.seeded.concat(["sakae37"]);persist();
+  try{renderAll();}catch(e){}
+}
+setTimeout(seedSakae,2500);
 var _ra24=renderAll;renderAll=function(){migText();_ra24();};
 (function(){var i=todayIdx();curDay=i>=0?i:0;})();
 (function(){
