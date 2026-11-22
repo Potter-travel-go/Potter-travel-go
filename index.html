@@ -875,6 +875,11 @@ body.dark .me-actions{border-top-color:rgba(255,255,255,.14)}
 }
 .bn-tools{display:flex;flex-direction:column;gap:8px;margin:0 0 14px}
 .bn-tools .btn{justify-content:center;font-size:15px}
+
+/* v36 Suica */
+.ic-chip{display:inline-flex;align-items:center;gap:4px;font-size:12px;line-height:1.35;border-radius:999px;padding:2px 9px;margin:2px 0;color:#3E3A39;white-space:normal}
+.ic-chip .bi{width:14px;height:14px;margin:0;flex:none}
+.ic-chip.ok{background:#E3EEDC}.ic-chip.no{background:#FBE0DA;font-weight:600}.ic-chip.warn{background:#FDF1D0}
 </style>
 <!-- ═══ Firebase 同步（GitHub Pages 版）═══ -->
 <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
@@ -977,7 +982,7 @@ const TRIP_USER = "potter";   // 資料存在 Firestore：data/users/potter/trip
     <symbol id="o-camera" viewBox="0 0 60 64" overflow="visible"><path d="M16 50l6-9M42 50l-6-9" stroke="#3E3A39" stroke-width="2"/><rect x="20" y="47" width="18" height="12" rx="3" fill="#A8D3E6" stroke="#3E3A39" stroke-width="2.2"/><circle cx="29" cy="53" r="3.6" fill="#FFFCF6" stroke="#3E3A39" stroke-width="2"/><rect x="22" y="44.5" width="5" height="3" rx="1" fill="#3E3A39"/></symbol>
     <symbol id="o-suitcase" viewBox="0 0 60 64" overflow="visible"><path d="M-6 38v-5h8v5" fill="none" stroke="#3E3A39" stroke-width="2.2"/><rect x="-10" y="38" width="16" height="21" rx="3" fill="#F2A497" stroke="#3E3A39" stroke-width="2.2"/><path d="M-10 46h16" stroke="#3E3A39" stroke-width="1.8"/><circle cx="-6" cy="61" r="2" fill="#3E3A39"/><circle cx="2" cy="61" r="2" fill="#3E3A39"/></symbol>
     <symbol id="o-lantern" viewBox="0 0 60 64" overflow="visible"><circle cx="57" cy="36" r="12" fill="#F6D27A" opacity=".45"/><path d="M57 25v4" stroke="#3E3A39" stroke-width="2"/><ellipse cx="57" cy="36" rx="6.5" ry="8" fill="#F6D27A" stroke="#3E3A39" stroke-width="2.2"/><path d="M51 33h12M51 39h12" stroke="#3E3A39" stroke-width="1.2"/><path d="M54 28h6M54 44h6" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/></symbol>
-    <symbol id="mood-great" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 24q3.5-5 7 0M26 24q3.5-5 7 0" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 30h14q-1 8-7 8t-7-8z" style="fill:var(--mc,#FFFCF6)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="30" r="2.6" style="fill:var(--mc,transparent)"/><circle cx="36" cy="30" r="2.6" style="fill:var(--mc,transparent)"/></symbol><symbol id="mood-good" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="24" r="1.8" fill="#3E3A39"/><circle cx="30" cy="24" r="1.8" fill="#3E3A39"/><path d="M18 31q6 5 12 0" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="30" r="2.6" style="fill:var(--mc,transparent)"/><circle cx="36" cy="30" r="2.6" style="fill:var(--mc,transparent)"/></symbol><symbol id="mood-ok" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="24" r="1.8" fill="#3E3A39"/><circle cx="30" cy="24" r="1.8" fill="#3E3A39"/><path d="M19 32h10" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="mood-tired" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 25h6M27 25h6M21 33q3-2 6 0" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 6h5l-5 5h5" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="mood-cold" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="23" r="1.8" fill="#3E3A39"/><circle cx="30" cy="23" r="1.8" fill="#3E3A39"/><path d="M18 30l3-2 3 2 3-2 3 2" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 36q15 7 30 0l-1 5q-14 5-28 0z" style="fill:var(--mc,#FFFCF6)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 20l3 3-3 3M46 20l-3 3 3 3" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="i-camera" viewBox="0 0 48 48"><path d="M8 16h8l3-5h10l3 5h8v22H8z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="26" r="7" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/></symbol><symbol id="i-clock" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><path d="M24 14v11l7 4" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="i-link" viewBox="0 0 48 48"><path d="M21 27a7 7 0 0 0 10 0l6-6a7 7 0 0 0-10-10l-2 2M27 21a7 7 0 0 0-10 0l-6 6a7 7 0 0 0 10 10l2-2" fill="none" stroke="#3E3A39" stroke-width="3.2" stroke-linecap="round"/></symbol><symbol id="i-star" viewBox="0 0 48 48"><path d="M24 7l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></symbol><symbol id="i-warn" viewBox="0 0 48 48"><path d="M24 7L43 40H5z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/><path d="M24 19v10" stroke="#3E3A39" stroke-width="3.4" stroke-linecap="round"/><circle cx="24" cy="34.5" r="2" fill="#3E3A39"/></symbol><symbol id="i-moon" viewBox="0 0 48 48"><path d="M30 8a16 16 0 1 0 10 26A13 13 0 0 1 30 8z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></symbol><symbol id="i-delay" viewBox="0 0 48 48"><circle cx="22" cy="25" r="15" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><path d="M22 16v10l6 4" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/><path d="M36 7h7v7" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-sun" viewBox="0 0 48 48"><circle cx="24" cy="24" r="8" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 6v5M24 37v5M6 24h5M37 24h5M11 11l3.5 3.5M33.5 33.5L37 37M37 11l-3.5 3.5M14.5 33.5L11 37" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-partly" viewBox="0 0 48 48"><g transform="translate(-6 -6) scale(.8)"><circle cx="24" cy="24" r="8" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 8v4M8 24h4M12.5 12.5l3 3M35.5 12.5l-3 3" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M13 38 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-cloud" viewBox="0 0 48 48"><path d="M13 34 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#E6E9EC" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-fog" viewBox="0 0 48 48"><path d="M13 28 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 36h26M14 42h24" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-rain" viewBox="0 0 48 48"><path d="M13 30 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#E6E9EC" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 36l-2 5M24 36l-2 5M32 36l-2 5" stroke="#7FB2D0" stroke-width="3" stroke-linecap="round"/></symbol><symbol id="wx-snow" viewBox="0 0 48 48"><path d="M13 30 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g stroke="#7FB2D0" stroke-width="2.5" stroke-linecap="round"><path d="M16 36v6M13 39h6M28 36v6M25 39h6"/></g><circle cx="22" cy="44" r="1.6" fill="#7FB2D0"/></symbol><symbol id="wx-thunder" viewBox="0 0 48 48"><path d="M13 30 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#E6E9EC" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 33l-5 7h6l-4 7" fill="none" stroke="#E8A33D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="mood-great" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 24q3.5-5 7 0M26 24q3.5-5 7 0" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 30h14q-1 8-7 8t-7-8z" style="fill:var(--mc,#FFFCF6)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="30" r="2.6" style="fill:var(--mc,transparent)"/><circle cx="36" cy="30" r="2.6" style="fill:var(--mc,transparent)"/></symbol><symbol id="mood-good" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="24" r="1.8" fill="#3E3A39"/><circle cx="30" cy="24" r="1.8" fill="#3E3A39"/><path d="M18 31q6 5 12 0" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="30" r="2.6" style="fill:var(--mc,transparent)"/><circle cx="36" cy="30" r="2.6" style="fill:var(--mc,transparent)"/></symbol><symbol id="mood-ok" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="24" r="1.8" fill="#3E3A39"/><circle cx="30" cy="24" r="1.8" fill="#3E3A39"/><path d="M19 32h10" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="mood-tired" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M15 25h6M27 25h6M21 33q3-2 6 0" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 6h5l-5 5h5" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="mood-cold" viewBox="0 0 48 48" overflow="visible"><circle cx="24" cy="26" r="17" style="fill:var(--mf,#EDE8DF)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="18" cy="23" r="1.8" fill="#3E3A39"/><circle cx="30" cy="23" r="1.8" fill="#3E3A39"/><path d="M18 30l3-2 3 2 3-2 3 2" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 36q15 7 30 0l-1 5q-14 5-28 0z" style="fill:var(--mc,#FFFCF6)" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 20l3 3-3 3M46 20l-3 3 3 3" fill="none" stroke="#3E3A39" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="i-camera" viewBox="0 0 48 48"><path d="M8 16h8l3-5h10l3 5h8v22H8z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/><circle cx="24" cy="26" r="7" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/></symbol><symbol id="i-clock" viewBox="0 0 48 48"><circle cx="24" cy="24" r="17" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><path d="M24 14v11l7 4" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="i-link" viewBox="0 0 48 48"><path d="M21 27a7 7 0 0 0 10 0l6-6a7 7 0 0 0-10-10l-2 2M27 21a7 7 0 0 0-10 0l-6 6a7 7 0 0 0 10 10l2-2" fill="none" stroke="#3E3A39" stroke-width="3.2" stroke-linecap="round"/></symbol><symbol id="i-star" viewBox="0 0 48 48"><path d="M24 7l5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></symbol><symbol id="i-warn" viewBox="0 0 48 48"><path d="M24 7L43 40H5z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/><path d="M24 19v10" stroke="#3E3A39" stroke-width="3.4" stroke-linecap="round"/><circle cx="24" cy="34.5" r="2" fill="#3E3A39"/></symbol><symbol id="i-moon" viewBox="0 0 48 48"><path d="M30 8a16 16 0 1 0 10 26A13 13 0 0 1 30 8z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/></symbol><symbol id="i-delay" viewBox="0 0 48 48"><circle cx="22" cy="25" r="15" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><path d="M22 16v10l6 4" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round"/><path d="M36 7h7v7" fill="none" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="i-ic" viewBox="0 0 48 48"><rect x="9" y="5" width="30" height="38" rx="7" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3"/><path d="M19 20a7 7 0 0 1 10 0M16 16a12 12 0 0 1 16 0" fill="none" stroke="#3E3A39" stroke-width="2.6" stroke-linecap="round"/><circle cx="24" cy="25" r="2" fill="#3E3A39"/><path d="M17 34h14" stroke="#3E3A39" stroke-width="2.6" stroke-linecap="round"/></symbol><symbol id="wx-sun" viewBox="0 0 48 48"><circle cx="24" cy="24" r="8" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 6v5M24 37v5M6 24h5M37 24h5M11 11l3.5 3.5M33.5 33.5L37 37M37 11l-3.5 3.5M14.5 33.5L11 37" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-partly" viewBox="0 0 48 48"><g transform="translate(-6 -6) scale(.8)"><circle cx="24" cy="24" r="8" fill="#F6D27A" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 8v4M8 24h4M12.5 12.5l3 3M35.5 12.5l-3 3" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></g><path d="M13 38 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-cloud" viewBox="0 0 48 48"><path d="M13 34 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#E6E9EC" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-fog" viewBox="0 0 48 48"><path d="M13 28 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 36h26M14 42h24" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol><symbol id="wx-rain" viewBox="0 0 48 48"><path d="M13 30 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#E6E9EC" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 36l-2 5M24 36l-2 5M32 36l-2 5" stroke="#7FB2D0" stroke-width="3" stroke-linecap="round"/></symbol><symbol id="wx-snow" viewBox="0 0 48 48"><path d="M13 30 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#FFFCF6" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><g stroke="#7FB2D0" stroke-width="2.5" stroke-linecap="round"><path d="M16 36v6M13 39h6M28 36v6M25 39h6"/></g><circle cx="22" cy="44" r="1.6" fill="#7FB2D0"/></symbol><symbol id="wx-thunder" viewBox="0 0 48 48"><path d="M13 30 h22a7 7 0 0 0 0-14a10 10 0 0 0-19-3a8 8 0 0 0-3 17z" fill="#E6E9EC" stroke="#3E3A39" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><path d="M25 33l-5 7h6l-4 7" fill="none" stroke="#E8A33D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol>
   </defs>
 </svg>
 
@@ -1370,7 +1375,7 @@ var DEFAULT={
    {id:"a7",t:"17:30",k:"",title:"晚餐自由覓食",desc:"17:30–18:00，茶屋街或金澤站一帶",tags:["bus"]},
    {id:"a8",t:"19:30",k:"sight",title:"金澤站鼓門夜景",tags:["bus"],must:1,q:"金沢駅 鼓門"},
    {id:"a9",t:"20:30",k:"",title:"回飯店休息"}],
-   notes:["入境前填好 Visit Japan Web（機場退稅也會用到）","買金澤市內 1 日乘車券（¥800，坐 4 次以上划算）","手機、相機充電；明早退房後行李寄放飯店"]},
+   notes:["入境前填好 Visit Japan Web（機場退稅也會用到）","買金澤市內 1 日乘車券（¥800，坐 4 次以上划算）","機場巴士、北鐵巴士不能刷 Suica：準備信用卡感應或零錢","手機、相機充電；明早退房後行李寄放飯店"]},
   {date:"1/29",wk:"五",icon:"i-torii",art:"kanazawa",title:"金澤一日 → 晚上到名古屋",sub:"兼六園、尾山神社，傍晚搭新幹線",items:[
    {id:"b1",t:"07:30",k:"",title:"早餐、退房、行李寄放飯店"},
    {id:"b2",t:"08:30",k:"sight",title:"兼六園（冬季雪吊）",desc:"早上人少好拍照",tags:["bus"],must:1,q:"兼六園"},
@@ -1384,8 +1389,8 @@ var DEFAULT={
    {id:"b10",t:"16:55",k:"move",title:"つるぎ35號 金澤 → 敦賀",desc:"17:36 抵達敦賀，轉乘有 32 分鐘",tags:["shinkansen"],imp:1},
    {id:"b11",t:"18:08",k:"move",title:"しらさぎ14號 敦賀 → 名古屋",desc:"約 19:47 抵達名古屋",tags:["ltd"],imp:1},
    {id:"b12",t:"19:50",k:"",title:"名鐵 Inn 新幹線口 Check in"},
-   {id:"b13",t:"20:15",k:"shop",title:"Bic Camera 名古屋駅西店",desc:"至 21:00，先看相機、比價；晚餐自由覓食",tags:["walk"],q:"ビックカメラ 名古屋駅西店"}],
-   notes:["早上退房，行李寄放飯店","JR 指定席車票／QR Code 準備好","晚上確認明天 KKday 集合點","查 shiroten.jp：明天展望台有沒有開","KKday 暴風雪判定（18:00 後看信箱）"]},
+   {id:"b13",t:"20:15",k:"",title:"晚餐＋名古屋站周邊自由逛",desc:"名鐵百貨、高島屋、地下街都在步行範圍內"}],
+   notes:["金澤北鐵巴士不能刷 Suica：準備信用卡感應或零錢","早上退房，行李寄放飯店","JR 指定席車票／QR Code 準備好","晚上確認明天 KKday 集合點","查 shiroten.jp：明天展望台有沒有開","KKday 暴風雪判定（18:00 後看信箱）"]},
   {date:"1/30",wk:"六",icon:"i-house",art:"shirakawa",title:"飛驒高山＋白川鄉一日遊",sub:"早上高山老街，下午合掌村與展望台",items:[
    {id:"c1",t:"07:30",k:"",title:"早餐"},
    {id:"c2",t:"08:00",k:"",title:"到集合點報到",desc:"提早 15 分鐘，遲到不等"},
@@ -1396,22 +1401,21 @@ var DEFAULT={
    {id:"c7",t:"14:30",k:"sight",title:"白川鄉合掌村散策",desc:"含展望台約 1.5 小時，先決定想看的重點",tags:["walk"],must:1,q:"白川郷 荻町合掌集落"},
    {id:"c8",t:"16:00",k:"move",title:"返程",tags:["tour"]},
    {id:"c9",t:"18:30",k:"",title:"回到名古屋站"},
-   {id:"c10",t:"18:45",k:"shop",title:"JR Gate Tower",desc:"Bic Camera 9–10F、UNIQLO・GU 11F（至 21:00）；晚餐自由覓食",tags:["walk"],q:"JRゲートタワー"}],
+   {id:"c10",t:"18:45",k:"shop",title:"JR Gate Tower",desc:"UNIQLO・GU 11F、BEAMS HOUSE 3F（至 21:00）；晚餐自由覓食",tags:["walk"],q:"JRゲートタワー"}],
    notes:["穿防水雪靴、帶冰爪和暖暖包","帶 KKday 憑證","相機電池充飽、帶備用電池","白川鄉店家約 16:30–17:00 關門"]},
-  {date:"1/31",wk:"日",icon:"i-shop",art:"nabana",title:"購物日：栄・長島 Outlet・點燈",sub:"羽球拍、On・HOKA、相機，下午 Outlet，晚上看點燈",items:[
+  {date:"1/31",wk:"日",icon:"i-shop",art:"nabana",title:"購物日：栄・長島 Outlet・點燈",sub:"羽球拍、On・HOKA、栄逛街，下午 Outlet，晚上看點燈",items:[
    {id:"d1",t:"08:30",k:"",title:"早餐"},
    {id:"d2",t:"09:40",k:"move",title:"地下鐵東山線 名古屋 → 中村公園（約 10 分）",desc:"約 ¥240",tags:["subway"]},
    {id:"d3",t:"10:00",k:"shop",title:"サトウスポーツ（羽球拍）",desc:"在地網球・羽球專門店；中村公園站 2 號出口步行 1 分，10:00–19:30，週一休",tags:["walk"],must:1,q:"サトウスポーツ 名古屋 中村区 豊国通"},
    {id:"d4",t:"10:45",k:"move",title:"地下鐵東山線 中村公園 → 栄（約 15 分）",desc:"約 ¥270",tags:["subway"]},
-   {id:"d5",t:"11:05",k:"shop",title:"カメラのキタムラ サカエチカ店",desc:"相機、配件",tags:["walk"],q:"カメラのキタムラ 名古屋 サカエチカ店"},
-   {id:"d6",t:"11:50",k:"shop",title:"Alpen NAGOYA（On、HOKA）",desc:"ナディアパーク B1–5F，10:30–20:00；羽球拍備案",tags:["walk"],must:1,q:"Alpen NAGOYA ナディアパーク"},
-   {id:"d7",t:"13:00",k:"",title:"午餐自由覓食",desc:"栄・矢場町一帶"},
-   {id:"d8",t:"13:30",k:"shop",title:"レモン社 名古屋栄店（中古相機）",desc:"名古屋 PARCO 也在附近",tags:["walk"],q:"レモン社 名古屋栄店"},
-   {id:"d9",t:"14:10",k:"move",title:"地下鐵回名古屋 → 名鐵巴士往長島溫泉",desc:"巴士約 55 分，¥1,400；週日人多，提早排隊",tags:["subway","bus"]},
+   {id:"d6",t:"11:05",k:"shop",title:"Alpen NAGOYA（On、HOKA）",desc:"ナディアパーク B1–5F，10:30–20:00；羽球拍備案",tags:["walk"],must:1,q:"Alpen NAGOYA ナディアパーク"},
+   {id:"d7",t:"12:30",k:"",title:"午餐自由覓食",desc:"栄・矢場町一帶"},
+   {id:"d8",t:"13:10",k:"shop",title:"栄・矢場町自由逛街",desc:"名古屋 PARCO、松坂屋、想去的店（相機已在台灣買好）",tags:["walk"],q:"名古屋PARCO"},
+   {id:"d9",t:"14:10",k:"move",title:"地下鐵回名古屋 → 名鐵巴士往長島溫泉",desc:"巴士約 55 分，¥1,400，可刷 Suica；週日人多，提早排隊",tags:["subway","bus"]},
    {id:"d10",t:"15:15",k:"shop",title:"ジャズドリーム長島 Outlet（約 2.5 小時）",desc:"BEAMS、UNITED ARROWS、URBAN RESEARCH…（10:00–20:00）",tags:["walk"],must:1,q:"ジャズドリーム長島"},
    {id:"d11",t:"17:45",k:"move",title:"搭車往なばなの里（約 15 分）",tags:["bus"]},
-   {id:"d12",t:"18:00",k:"sight",title:"なばなの里 冬季點燈：光之隧道、水上點燈",desc:"閉園時間出發前查官網",tags:["walk"],must:1,q:"なばなの里"},
-   {id:"d13",t:"20:00",k:"move",title:"直達巴士回名古屋（約 35–40 分）",tags:["bus"]},
+   {id:"d12",t:"18:00",k:"sight",title:"なばなの里 冬季點燈：光之隧道、水上點燈",desc:"1/31 入村券 ¥3,200（超商預購便宜 ¥200）；附園內可用的 ¥500 金券 2 張；閉園時間出發前查官網",tags:["walk"],must:1,q:"なばなの里"},
+   {id:"d13",t:"20:00",k:"move",title:"名鐵巴士回名古屋（約 35 分）",desc:"¥1,200，可刷 Suica（加班車可能不行）",tags:["bus"]},
    {id:"d14",t:"21:00",k:"shop",title:"唐吉訶德栄本店（藥妝）",desc:"24 小時・可免稅",tags:["subway"],q:"ドン・キホーテ 栄本店"}],
    notes:["帶なばなの里入村券","晚上很冷：毛帽、手套、暖暖包","收據依店家收好（退稅：同店同日）","羽球拍請店家套拍套，方便帶上巴士","週日人多，回程巴士提早排隊"]},
   {date:"2/1",wk:"一",icon:"i-torii",art:"nagoya",title:"熱田神宮・大須・回程",sub:"早上參拜熱田神宮，逛大須商店街，傍晚飛回高雄",items:[
@@ -1432,7 +1436,7 @@ var DEFAULT={
  ],
  maps:[
   [{id:"m1a",label:"小松 → 金澤",stops:[
-     S("s1","小松機場","小松空港","move",36.394,136.407,"12:05","13:00","出關約 1 小時","suitcase","bus","機場巴士 約 40–60 分","¥1,300"),
+     S("s1","小松機場","小松空港","move",36.394,136.407,"12:05","13:00","出關約 1 小時","suitcase","bus","小松空港リムジンバス 約 40 分","¥1,400"),
      S("s2","金澤站・鼓門","金沢駅 鼓門","move",36.5781,136.6480,"13:50","14:00","寄放行李後開始逛","suitcase")]},
    {id:"m1b",label:"金澤市區",back:true,backAt:["17:30","20:30"],stops:[
      S("s3","金澤站・鼓門","金沢駅 鼓門","move",36.5781,136.6480,"14:00","14:20","出發點；晚餐後 19:30 看鼓門夜景","suitcase","bus","北鐵巴士往新神田 約 20–25 分","約 ¥300"),
@@ -1458,13 +1462,12 @@ var DEFAULT={
   [{id:"m4a",label:"羽球拍＋栄",stops:[
      S("s20","名古屋站・名鐵Inn","名鉄イン 名古屋駅新幹線口","move",35.1709,136.8815,"08:30","09:40","09:40 出發","suitcase","rail","地下鐵東山線 約 10 分","約 ¥240"),
      S("s20b","サトウスポーツ","サトウスポーツ 名古屋 中村区 豊国通","shop",35.1684,136.8448,"10:00","10:45","約 45 分（羽球拍）","shop","rail","地下鐵東山線直達栄 約 15 分","約 ¥270"),
-     S("s26","栄（キタムラ）","カメラのキタムラ 名古屋 サカエチカ店","shop",35.1695,136.9085,"11:05","11:45","約 40 分（相機）","camera","walk","步行約 10 分","免費"),
-     S("s26b","Alpen NAGOYA","Alpen NAGOYA ナディアパーク","shop",35.1640,136.9052,"11:55","13:25","約 1.5 小時（On、HOKA）＋午餐","shop","walk","步行約 5 分","免費"),
-     S("s27","矢場町相機店","レモン社 名古屋栄店","shop",35.1625,136.9075,"13:30","14:00","約 30 分（中古相機）","camera","rail","地下鐵 矢場町 → 名古屋 約 10 分","約 ¥240")]},
+     S("s26b","Alpen NAGOYA","Alpen NAGOYA ナディアパーク","shop",35.1640,136.9052,"11:05","13:05","約 1.5 小時（On、HOKA）＋午餐","shop","walk","步行約 5 分","免費"),
+     S("s27","栄・矢場町（自由逛）","名古屋PARCO","shop",35.1637,136.9068,"13:10","14:00","約 50 分（想去的店）","shop","rail","地下鐵 矢場町 → 名古屋 約 10 分","約 ¥240")]},
    {id:"m4b",label:"長島・なばな",back:true,backAt:["20:45","23:59"],stops:[
      S("s20c","名古屋站（名鐵巴士）","名鉄バスセンター","move",35.1693,136.8846,"14:10","14:20","搭往長島溫泉的巴士","suitcase","bus","名鐵巴士 約 55 分","¥1,400"),
      S("s22","長島 Outlet","ジャズドリーム長島","shop",35.0330,136.7230,"15:15","17:45","約 2.5 小時","shop","bus","巴士 約 15 分","以現場為準"),
-     S("s23","なばなの里","なばなの里","sight",35.0723,136.6995,"18:00","20:00","約 2 小時（點燈）","lantern","bus","直達巴士回名古屋 約 35–40 分","約 ¥1,200")]}],
+     S("s23","なばなの里","なばなの里","sight",35.0723,136.6995,"18:00","20:00","約 2 小時（點燈）","lantern","bus","名鐵巴士回名古屋 約 35 分","¥1,200")]}],
   [{id:"m5a",label:"熱田・大須",back:true,backAt:["14:05","15:00"],stops:[
      S("s24","名古屋站・名鐵Inn","名鉄イン 名古屋駅新幹線口","move",35.1709,136.8815,"07:15","07:35","退房寄放行李","suitcase","walk","步行約 15 分","免費"),
      S("s24b","つばめパン","つばめパン&Milk 名駅店","sight",35.1686,136.8869,"07:50","08:45","排隊＋小倉吐司早餐","none","rail","步行到名鐵名古屋＋名鐵 7 分","¥250"),
@@ -1480,7 +1483,7 @@ var DEFAULT={
    ["訂名鐵 Inn 名古屋（1/29–2/1）","","12 月"],
    ["KKday 1/30 高山＋白川鄉一日遊","直達展望台方案","12 月"],
    ["JR つるぎ35號＋しらさぎ14號 指定席","1 個月前 10:00 開賣（e5489）","約 12/29"],
-   ["なばなの里 入村券","超商可預購","出發前"],
+   ["なばなの里 入村券","超商預購 ¥3,000（現場 ¥3,200）","出發前"],
    ["Visit Japan Web 登錄","入境、退稅用","出發前"],
    ["旅平險／旅遊不便險","含延誤、行程取消","出發前"],
    ["冬季裝備：防水雪靴、冰爪、暖暖包","","出發前"],
@@ -1506,11 +1509,9 @@ var DEFAULT={
  },
  shops:[
   ["衣","金澤フォーラス","金澤站東口步行 1 分；JOURNAL STANDARD、BEAUTY&YOUTH、agnès b.、Q（配件）、Loft、PLAZA","物販～20:00","1/29"],
-  ["相","Bic Camera 名古屋駅西店","名古屋站西口步行 3 分，近飯店","10:00–21:00","1/29 晚"],["相","Bic Camera JR Gate Tower 店","JR Gate Tower 9–10F","10:00–21:00","1/30 晚"],
   ["衣","UNIQLO 名古屋店・GU 名古屋ゲートタワー店","JR Gate Tower 11F（東海地區最大）","10:00–21:00","1/30 晚",1],["衣","BEAMS HOUSE 名古屋","タカシマヤ ゲートタワーモール 3F","10:00–21:00","1/30 晚"],["衣","ジャズドリーム長島 Outlet","BEAMS、UNITED ARROWS、URBAN RESEARCH、nano・universe、SHELTER、WEGO、graniph、帽子屋、asics","10:00–20:00","1/31",1],["衣","Alpen NAGOYA（On、HOKA）","栄・ナディアパーク B1–5F，近矢場町","10:30–20:00","1/31",1],["其","ハセガワスポーツ（羽球拍）","金澤・新神田 4-1-16，新神田巴士站前；羽球專門","一–六 9:30–19:00／日・假日 9:30–18:00","1/28",1],["其","サトウスポーツ（羽球拍）","中村公園站 2 號出口步行 1 分；網球・羽球專門店","10:00–19:30・週一休","1/31",1],
-  ["藥","ドン・キホーテ栄本店","栄駅 1 號出口旁","24 小時・可免稅","1/31 晚"],["相","カメラのキタムラ サカエチカ店","栄地下街","10:00–20:00","1/31"],
-  ["相","レモン社 名古屋栄店","矢場町站附近（中古相機）","約 10:30–19:30","1/31"],["藥","スギ薬局 大須店","大須商店街","09:00–22:00・可免稅","2/1"],
-  ["藥","マツモトキヨシ 名古屋大須観音店","大須観音站步行 5 分","依店家","2/1"],["相","Air Bic Camera","中部機場第 1 航廈管制區內","依航班","2/1 備案"]
+  ["藥","ドン・キホーテ栄本店","栄駅 1 號出口旁","24 小時・可免稅","1/31 晚"],["藥","スギ薬局 大須店","大須商店街","09:00–22:00・可免稅","2/1"],
+  ["藥","マツモトキヨシ 名古屋大須観音店","大須観音站步行 5 分","依店家","2/1"]
  ].map(function(r,i){return {id:"sh"+i,cat:r[0],name:r[1],loc:r[2],hours:r[3],day:r[4],star:r[5]?1:0};}),
  info:[
   {id:"i1",title:"退稅新制（2026/11 起）",color:"y",text:"1. 店裡先付含稅價，登記退款方式（信用卡）\n2. 中部機場一到，先去出發大廳的稅關 KIOSK 刷護照\n3. GREEN 直接托運；RED 帶商品到稅關櫃台給人員看\n4. 托運後、或過了出境審查，就不能再辦\n同一張收據的商品要全部帶著；藥妝在日本拆開用過就不能退。購買後 90 天內出境。"},
@@ -1519,6 +1520,7 @@ var DEFAULT={
   {id:"i4",title:"1/29 金澤 → 名古屋",color:"w",text:"つるぎ35號 16:55 金澤 → 17:36 敦賀，轉 しらさぎ14號 18:08 → 約 19:47 名古屋。兩段都訂指定席（しらさぎ沒有自由席），乘車日 1 個月前 10:00 在 e5489 開賣。合計約 ¥9,080。"},
   {id:"i5",title:"1/30 KKday 一日遊",color:"g",text:"【1人成團】日本白川鄉合掌村一日遊｜可選直達展望台＋飛驒高山老街巡禮｜名古屋出發。選「直達展望台」方案；08:15 名古屋站集合，約 18:30 回到名古屋。暴風雪前一天 18:00 判定是否出團。"},
   {id:"i6",title:"金澤市區巴士",color:"y",text:"城下まち金沢周遊バス 一次 ¥220；金澤市內 1 日乘車券 ¥800，坐 4 次以上就划算。"},
+  {id:"i8",title:"哪裡可以刷 Suica（Apple 錢包）",color:"c",text:"✗ 小松空港リムジンバス：車上不收；可在機場售票機用 Suica 買票，或刷信用卡感應、付現金\n✗ 金澤北鐵一般路線巴士：不收 Suica；用信用卡感應（Visa、JCB 等，不收 Mastercard）或現金\n○ 城下まち金沢周遊バス：可以刷\n○ 名古屋地下鐵、名鐵電車、μSKY：可以刷\n○ 名鐵巴士（長島溫泉、なばなの里）：可以刷，加班車可能不行\n△ つるぎ、しらさぎ：要用 e5489 的指定席車票\n金澤搭巴士前先準備好信用卡或零錢。"},
   {id:"i7",title:"往中部機場",color:"c",text:"名鐵 μSKY 約 28 分，車票 ¥980＋μ 車票 ¥450 ＝ ¥1,430。虎航在第 2 航廈。"}
  ],
  budget:[["1/28","虎航 IT294 去程","交通","NT$9,049"],["1/28","機場巴士 小松 → 金澤","交通","¥1,300"],["1/28","Torifito 金澤（1 晚）","住宿",""],["1/29","つるぎ35號＋しらさぎ14號","交通","¥9,080"],["1/29","名鐵 Inn（3 晚）","住宿",""],["1/30","KKday 一日遊（直達展望台）","景點",""],["1/31","地下鐵（中村公園、栄、回名古屋）","交通","約 ¥750"],["2/1","名鐵＋地下鐵（神宮前、大須）","交通","約 ¥890"],["1/31","長島往返交通","交通","¥1,360"],["1/31","なばなの里 入村券","景點",""],["2/1","名鐵 μSKY 往機場","交通","¥1,430"],["2/1","虎航 IT269 回程","交通","NT$17,424"]].map(function(r,i){return {id:"bg"+i,d:r[0],item:r[1],cat:r[2],amt:r[3]};})
@@ -2854,7 +2856,7 @@ function fxNote(){
 })();
 
 /* ── 重新整理、版本 ── */
-var SITE_VERSION="2026.11.21・v35";
+var SITE_VERSION="2026.11.22・v36";
 $("reloadBtn").addEventListener("click",function(){
   var b=this;b.textContent="更新中…";
   var go=function(){location.reload();};
@@ -3278,6 +3280,49 @@ var _um34=updateMe;updateMe=function(){_um34.apply(this,arguments);meLayout("meT
     $("bnReload").onclick=function(){closeForm();$("reloadBtn").click();};
   },0);});
 })();
+
+/* ═════ v36：相機改在台灣買、なばなの里、Suica 可否 ═════ */
+function migV36(){var c=STATE.content;if(!c||c._v36)return;
+  try{
+    var addNote=function(d,t){if(d&&d.notes&&d.notes.join("").indexOf("Suica")<0)d.notes.splice(Math.min(2,d.notes.length),0,t);};
+    addNote(c.days[0],"機場巴士、北鐵巴士不能刷 Suica：準備信用卡感應或零錢");
+    var d1=c.days[1],d2=c.days[2],d3=c.days[3];
+    if(d1){d1.items.forEach(function(it){if(it.id==="b13"&&/Bic Camera/.test(it.title)){it.title="晚餐＋名古屋站周邊自由逛";it.desc="名鐵百貨、高島屋、地下街都在步行範圍內";it.k="";delete it.q;it.tags=[];}});
+      if(d1.notes&&d1.notes.join("").indexOf("Suica")<0)d1.notes.unshift("金澤北鐵巴士不能刷 Suica：準備信用卡感應或零錢");}
+    if(d2)d2.items.forEach(function(it){if(it.id==="c10"&&it.desc)it.desc=it.desc.replace("Bic Camera 9–10F、UNIQLO・GU 11F（至 21:00）","UNIQLO・GU 11F、BEAMS HOUSE 3F（至 21:00）");});
+    if(d3){d3.sub=String(d3.sub||"").replace("相機，","栄逛街，");
+      d3.items=d3.items.filter(function(it){return it.id!=="d5";});
+      d3.items.forEach(function(it){
+        if(it.id==="d6")it.t="11:05";
+        if(it.id==="d7")it.t="12:30";
+        if(it.id==="d13"&&/直達巴士/.test(it.title)){it.title="名鐵巴士回名古屋（約 35 分）";it.desc="¥1,200，可刷 Suica（加班車可能不行）";}
+        if(it.id==="d9"&&it.desc&&it.desc.indexOf("Suica")<0)it.desc=it.desc.replace("¥1,400；","¥1,400，可刷 Suica；");
+        if(it.id==="d8"&&/レモン社|相機/.test(it.title)){it.t="13:10";it.title="栄・矢場町自由逛街";it.desc="名古屋 PARCO、松坂屋、想去的店（相機已在台灣買好）";it.q="名古屋PARCO";}
+        if(it.id==="d12"&&it.desc&&it.desc.indexOf("3,200")<0)it.desc="1/31 入村券 ¥3,200（超商預購便宜 ¥200）；附園內可用的 ¥500 金券 2 張；"+it.desc;});}
+    var m=c.maps&&c.maps[3]&&c.maps[3][0];
+    if(m){m.stops=m.stops.filter(function(x){return x.id!=="s26";});m.stops.forEach(function(x){
+      if(x.id==="s26b"){x.arr="11:05";x.dep="13:05";}
+      if(x.id==="s27"&&/レモン社|相機/.test(x.name+x.jp)){x.name="栄・矢場町（自由逛）";x.jp="名古屋PARCO";x.lat=35.1637;x.lon=136.9068;x.arr="13:10";x.dep="14:00";x.stay="約 50 分（想去的店）";x.outfit="shop";}});}
+    var m4b=c.maps&&c.maps[3]&&c.maps[3][1];if(m4b)m4b.stops.forEach(function(x){if(x.id==="s23"){x.how="名鐵巴士回名古屋 約 35 分";x.fare="¥1,200";}});
+    var m1=c.maps&&c.maps[0]&&c.maps[0][0];if(m1)m1.stops.forEach(function(x){if(x.id==="s1"){x.how="小松空港リムジンバス 約 40 分";x.fare="¥1,400";}});
+    if(c.shops)c.shops=c.shops.filter(function(r){return !/Bic Camera|キタムラ|レモン社/.test(r.name);});
+    if(c.lists&&c.lists.todo)c.lists.todo.forEach(function(t){if(/なばなの里/.test(t.t)&&t.s==="超商可預購")t.s="超商預購 ¥3,000（現場 ¥3,200）";});
+    if(c.info&&!c.info.some(function(x){return x.id==="i8";})){var src=DEFAULT.info.filter(function(x){return x.id==="i8";})[0];var k=c.info.findIndex(function(x){return x.id==="i6";});if(src)c.info.splice(k<0?c.info.length:k+1,0,clone(src));}
+  }catch(e){}
+  c._v36=1;persist();}
+var _ra36=renderAll;renderAll=function(){migV36();_ra36();};
+function icInfo(x){
+  if(!x||!x.mode||x.mode==="walk")return null;var h=String(x.how||"")+String(x.fare||"");
+  if(/KKday|團費/.test(h))return null;
+  if(/つるぎ|しらさぎ|新幹線|特急/.test(h))return {c:"warn",t:"用 e5489 指定席車票"};
+  if(/リムジン|機場巴士/.test(h))return {c:"no",t:"車上不收 Suica：售票機用 Suica 買票，或刷信用卡"};
+  if(x.mode==="bus"&&x.lat>36.3){if(/周遊/.test(h))return {c:"ok",t:"周遊巴士可刷 Suica"};return {c:"no",t:"北鐵巴士不收 Suica：信用卡感應或零錢（周遊巴士可刷）"};}
+  if(x.mode==="bus")return {c:"ok",t:"可刷 Suica（加班車可能不行）"};
+  if(x.mode==="rail")return {c:"ok",t:"可刷 Suica"};
+  return null;
+}
+var _lh36=legHtml;legHtml=function(x){var h=_lh36.apply(this,arguments),ic=icInfo(x);if(!ic)return h;
+  return h+'<span class="ic-chip '+ic.c+'"><svg class="bi" viewBox="0 0 48 48" aria-hidden="true"><use href="#i-ic"/></svg>'+ic.t+'</span>';};
 var _ra24=renderAll;renderAll=function(){migText();_ra24();};
 (function(){var i=todayIdx();curDay=i>=0?i:0;})();
 (function(){
